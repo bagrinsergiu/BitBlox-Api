@@ -9,3 +9,4 @@ Use it in your service or application.
 .. toctree::
 	
 	getting_started
+	documentation
