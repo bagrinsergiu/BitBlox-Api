@@ -9,4 +9,4 @@ Use it in your service or application.
 .. toctree::
 	
 	getting_started
-	documentation <http://docs.testblox.info/doc/api>
+	Documentation <http://docs.testblox.info/doc/api>
