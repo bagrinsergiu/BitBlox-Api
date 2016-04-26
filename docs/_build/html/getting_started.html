@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Documentation" href="documentation.html" />
     <link rel="prev" title="Noun Project API" href="index.html" /> 
   </head>
   <body>
@@ -33,6 +34,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="documentation.html" title="Documentation"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Noun Project API"
              accesskey="P">previous</a> |</li>
@@ -54,7 +58,7 @@
 <div class="section" id="creating-an-api-key">
 <h2>Creating an API Key<a class="headerlink" href="#creating-an-api-key" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div>Access to the API is available to everyone with a Noun Project account (including users with Playground accounts). Once you have logged in, visit the <a class="reference external" href="http://thenounproject.com/developers/apps/">app management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</div></blockquote>
+<div>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://testblox.info/applications">app management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -63,7 +67,8 @@
 <div class="section" id="authentication">
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>The API is secured with OAuth 1.0a. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/code/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
+<div><p>The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/2/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
+<p><tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://testblox.info/oauth/v2/token?client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET&amp;grant_type=password&amp;username=USERNAME&amp;password=PASSWORD</span></tt></p>
 <p>For more examples, please view our <a class="reference internal" href="#sample-code">sample code</a>.</p>
 </div></blockquote>
 <div class="line-block">
@@ -74,8 +79,8 @@
 <div class="section" id="making-requests">
 <h2>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>After authenticating, you can make requests. To make a request you simply need to point to <tt class="docutils literal"><span class="pre">http://api.thenounproject.com</span></tt>. It’s really that simple!</p>
-<p>For reference, here is a list of our <a class="reference external" href="documentation.html">public API endpoints</a>, <a class="reference external" href="http://api.thenounproject.com/explorer">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
+<div><p>After authenticating, you can make requests. To make a request you simply need to point to <tt class="docutils literal"><span class="pre">http://testblox.com/api/</span></tt>. It’s really that simple!</p>
+<p>For reference, here is a list of our <a class="reference external" href="documentation.html">public API endpoints</a>, <a class="reference external" href="http://docs.testblox.info/doc/api">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
 </div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -88,9 +93,12 @@
 <div><p>Every request will return a JSON response or an error response.</p>
 <p><strong>Examples:</strong></p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">200</span> <span class="pre">Success</span></tt> - returns data as JSON in the response body.</li>
-<li><tt class="docutils literal"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></tt> - may return extra error description in response body.</li>
-<li><tt class="docutils literal"><span class="pre">401</span> <span class="pre">Unauthorized</span></tt> - may return extra error description in response body.</li>
+<li><tt class="docutils literal"><span class="pre">200</span> <span class="pre">Success</span></tt> - Returned when all ok</li>
+<li><tt class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></tt> - Returned when the object is created</li>
+<li><tt class="docutils literal"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></tt> - Returned when an error has occurred while object creation</li>
+<li><tt class="docutils literal"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">found</span></tt> - Returned when unable to find object</li>
+<li><tt class="docutils literal"><span class="pre">401</span> <span class="pre">Unauthorized</span></tt> - Unauthorized access</li>
+<li><tt class="docutils literal"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">many</span> <span class="pre">requests</span></tt> - Return when a client hits the rate limit (limit=7200, period=3600)</li>
 </ul>
 </div></blockquote>
 <div class="line-block">
@@ -101,26 +109,7 @@
 <div class="section" id="pricing">
 <h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div>We have plans of all sizes, and can customize plans to meet your needs. Please visit the <a class="reference external" href="http://thenounproject.com/developers/">developers page</a> for more information on our API pricing.</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="unacceptable-uses">
-<h2>Unacceptable Uses<a class="headerlink" href="#unacceptable-uses" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>The Noun Project API is designed to empower developers with a visual language. Using the Noun Project API inappropriately will result in the review and removal of your API keys.</p>
-<p><strong>This includes but is not limited to:</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li>Distributing icons.</li>
-<li>Reselling content.</li>
-<li>Exploiting The Noun Project users or content.</li>
-<li>Replicating The Noun Project.</li>
-</ul>
-</div></blockquote>
-</div></blockquote>
+<div>We have plans of all sizes, and can customize plans to meet your needs. Please visit the <a class="reference external" href="http://testblox.info/developers">developers page</a> for more information on our API pricing.</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -160,34 +149,6 @@
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="community-tools">
-<h2>Community Tools<a class="headerlink" href="#community-tools" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>The following is a list of unofficial tools by our community to help you along with development. If you experience any issues, please reach out to the individual as we&#8217;re not affiliated with these projects.</p>
-<p><strong>Wrappers:</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference external" href="https://github.com/rosshettel/the-noun-project">Node.js Wrapper</a> by Ross Hettle</li>
-<li><a class="reference external" href="https://github.com/TailorBrands/noun-project-api">Ruby Wrapper</a> by Tailor Brands</li>
-<li><a class="reference external" href="https://github.com/onassar/PHP-TheNounProject">PHP Wrapper</a> by Oliver Nassar</li>
-</ul>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><strong>Examples:</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><a class="reference external" href="https://gist.github.com/hirobert/3bca9fd56b9b4418b1ca">Node.js Example</a></li>
-<li><a class="reference external" href="https://gist.github.com/hirobert/710f2e22ed803dc34cc0">PHP Example</a></li>
-</ul>
-</div></blockquote>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
 </div>
 
 
@@ -204,9 +165,7 @@
 <li><a class="reference internal" href="#making-requests">Making Requests</a></li>
 <li><a class="reference internal" href="#supported-file-formats-and-http-responses">Supported File Formats and HTTP Responses</a></li>
 <li><a class="reference internal" href="#pricing">Pricing</a></li>
-<li><a class="reference internal" href="#unacceptable-uses">Unacceptable Uses</a></li>
 <li><a class="reference internal" href="#sample-code">Sample Code</a></li>
-<li><a class="reference internal" href="#community-tools">Community Tools</a></li>
 </ul>
 </li>
 </ul>
@@ -214,6 +173,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">Noun Project API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="documentation.html"
+                        title="next chapter">Documentation</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/getting_started.txt"
@@ -242,6 +204,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="documentation.html" title="Documentation"
+             >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Noun Project API"
              >previous</a> |</li>

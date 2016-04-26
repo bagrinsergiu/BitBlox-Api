@@ -8,14 +8,16 @@ Getting Started
 
 Creating an API Key
 ===================
-	Access to the API is available to everyone with a Noun Project account (including users with Playground accounts). Once you have logged in, visit the `app management page <http://thenounproject.com/developers/apps/>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+	Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `app management page <http://testblox.info/applications>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 |
 |
 
 Authentication
 ==============
-	The API is secured with OAuth 1.0a. You must use your client key and secret to sign requests when accessing the API. There are many `established libraries <http://oauth.net/code/>`_ that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.
+	The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many `established libraries <http://oauth.net/2/>`_ that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.
+
+	``POST http://testblox.info/oauth/v2/token?client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=password&username=USERNAME&password=PASSWORD``
 
 	For more examples, please view our `sample code`_.
 
@@ -25,9 +27,9 @@ Authentication
 
 Making Requests
 ===============
-	After authenticating, you can make requests. To make a request you simply need to point to ``http://api.thenounproject.com``. It’s really that simple!
+	After authenticating, you can make requests. To make a request you simply need to point to ``http://testblox.com/api/``. It’s really that simple!
 
-	For reference, here is a list of our `public API endpoints <documentation.html>`_, `API Explorer <http://api.thenounproject.com/explorer>`_, and `sample code`_.
+	For reference, here is a list of our `public API endpoints <documentation.html>`_, `API Explorer <http://docs.testblox.info/doc/api>`_, and `sample code`_.
 
 |
 |
@@ -39,33 +41,23 @@ Supported File Formats and HTTP Responses
 
 	**Examples:**
 
-	- ``200 Success`` - returns data as JSON in the response body.
-	- ``404 Not Found`` - may return extra error description in response body.
-	- ``401 Unauthorized`` - may return extra error description in response body.
+	- ``200 Success`` - Returned when all ok
+	- ``201 Created`` - Returned when the object is created
+	- ``400 Bad Request`` - Returned when an error has occurred while object creation
+	- ``404 Not found`` - Returned when unable to find object
+	- ``401 Unauthorized`` - Unauthorized access
+	- ``429 Too many requests`` - Return when a client hits the rate limit (limit=7200, period=3600)
 
 |
 |
 
 Pricing
 =======
-	We have plans of all sizes, and can customize plans to meet your needs. Please visit the `developers page <http://thenounproject.com/developers/>`_ for more information on our API pricing.
+	We have plans of all sizes, and can customize plans to meet your needs. Please visit the `developers page <http://testblox.info/developers>`_ for more information on our API pricing.
 
 |
 |
 
-Unacceptable Uses
-=================
-	The Noun Project API is designed to empower developers with a visual language. Using the Noun Project API inappropriately will result in the review and removal of your API keys.
-
-	**This includes but is not limited to:**
-
-		- Distributing icons.
-		- Reselling content.
-		- Exploiting The Noun Project users or content.
-		- Replicating The Noun Project.
-
-|
-|
 
 Sample Code
 ===========
@@ -101,23 +93,4 @@ Sample Code
 |
 |
 
-Community Tools
-==================
-	The following is a list of unofficial tools by our community to help you along with development. If you experience any issues, please reach out to the individual as we're not affiliated with these projects.
-
-	**Wrappers:**
-
-		- `Node.js Wrapper  <https://github.com/rosshettel/the-noun-project>`_ by Ross Hettle
-		- `Ruby Wrapper <https://github.com/TailorBrands/noun-project-api>`_ by Tailor Brands
-		- `PHP Wrapper <https://github.com/onassar/PHP-TheNounProject>`_ by Oliver Nassar
-
-	|
-
-	**Examples:**
-
-		- `Node.js Example  <https://gist.github.com/hirobert/3bca9fd56b9b4418b1ca>`_
-		- `PHP Example  <https://gist.github.com/hirobert/710f2e22ed803dc34cc0>`_
-
-|
-|
 
