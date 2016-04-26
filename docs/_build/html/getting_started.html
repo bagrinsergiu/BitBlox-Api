@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting Started &mdash; BitBlox 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
+    <link rel="prev" title="Noun Project API" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Noun Project API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="section" id="creating-an-api-key">
+<h2>Creating an API Key<a class="headerlink" href="#creating-an-api-key" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>Access to the API is available to everyone with a Noun Project account (including users with Playground accounts). Once you have logged in, visit the <a class="reference external" href="http://thenounproject.com/developers/apps/">app management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The API is secured with OAuth 1.0a. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/code/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
+<p>For more examples, please view our <a class="reference internal" href="#sample-code">sample code</a>.</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="making-requests">
+<h2>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>After authenticating, you can make requests. To make a request you simply need to point to <tt class="docutils literal"><span class="pre">http://api.thenounproject.com</span></tt>. It’s really that simple!</p>
+<p>For reference, here is a list of our <a class="reference external" href="documentation.html">public API endpoints</a>, <a class="reference external" href="http://api.thenounproject.com/explorer">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="supported-file-formats-and-http-responses">
+<h2>Supported File Formats and HTTP Responses<a class="headerlink" href="#supported-file-formats-and-http-responses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Every request will return a JSON response or an error response.</p>
+<p><strong>Examples:</strong></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">200</span> <span class="pre">Success</span></tt> - returns data as JSON in the response body.</li>
+<li><tt class="docutils literal"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></tt> - may return extra error description in response body.</li>
+<li><tt class="docutils literal"><span class="pre">401</span> <span class="pre">Unauthorized</span></tt> - may return extra error description in response body.</li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="pricing">
+<h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>We have plans of all sizes, and can customize plans to meet your needs. Please visit the <a class="reference external" href="http://thenounproject.com/developers/">developers page</a> for more information on our API pricing.</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="unacceptable-uses">
+<h2>Unacceptable Uses<a class="headerlink" href="#unacceptable-uses" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The Noun Project API is designed to empower developers with a visual language. Using the Noun Project API inappropriately will result in the review and removal of your API keys.</p>
+<p><strong>This includes but is not limited to:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Distributing icons.</li>
+<li>Reselling content.</li>
+<li>Exploiting The Noun Project users or content.</li>
+<li>Replicating The Noun Project.</li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="sample-code">
+<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>Python:</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
+
+<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s">&quot;your-api-secret&quot;</span><span class="p">)</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s">&quot;http://api.thenounproject.com/icon/1&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Ruby:</strong></p>
+<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;oauth&quot;</span>
+
+<span class="n">consumer</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:Consumer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s2">&quot;your-api-secret&quot;</span><span class="p">)</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:AccessToken</span><span class="o">.</span><span class="n">new</span> <span class="n">consumer</span>
+<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;http://api.thenounproject.com/icon/1&quot;</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">access_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="community-tools">
+<h2>Community Tools<a class="headerlink" href="#community-tools" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>The following is a list of unofficial tools by our community to help you along with development. If you experience any issues, please reach out to the individual as we&#8217;re not affiliated with these projects.</p>
+<p><strong>Wrappers:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/rosshettel/the-noun-project">Node.js Wrapper</a> by Ross Hettle</li>
+<li><a class="reference external" href="https://github.com/TailorBrands/noun-project-api">Ruby Wrapper</a> by Tailor Brands</li>
+<li><a class="reference external" href="https://github.com/onassar/PHP-TheNounProject">PHP Wrapper</a> by Oliver Nassar</li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Examples:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://gist.github.com/hirobert/3bca9fd56b9b4418b1ca">Node.js Example</a></li>
+<li><a class="reference external" href="https://gist.github.com/hirobert/710f2e22ed803dc34cc0">PHP Example</a></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#creating-an-api-key">Creating an API Key</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a></li>
+<li><a class="reference internal" href="#making-requests">Making Requests</a></li>
+<li><a class="reference internal" href="#supported-file-formats-and-http-responses">Supported File Formats and HTTP Responses</a></li>
+<li><a class="reference internal" href="#pricing">Pricing</a></li>
+<li><a class="reference internal" href="#unacceptable-uses">Unacceptable Uses</a></li>
+<li><a class="reference internal" href="#sample-code">Sample Code</a></li>
+<li><a class="reference internal" href="#community-tools">Community Tools</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Noun Project API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/getting_started.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Noun Project API"
+             >previous</a> |</li>
+        <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2016, BitBlox.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
