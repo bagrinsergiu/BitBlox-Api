@@ -2,7 +2,6 @@
 Getting Started
 ===============
 
-----------------------------
 
 |
 |
@@ -20,8 +19,6 @@ Authentication
 
 	For more examples, please view our `sample code`_.
 
-.. note::
-* Nonce must be a minimum of 8 characters in length.
 
 |
 |
