@@ -17,7 +17,12 @@ Authentication
 ==============
 	The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many `established libraries <http://oauth.net/2/>`_ that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.
 
-	``POST http://testblox.info/oauth/v2/token?client_id=CLIENT_ID&client_secret=CLIENT_SECRET&grant_type=password&username=USERNAME&password=PASSWORD``
+	| POST http://testblox.info/oauth/v2/token?
+	| client_id=CLIENT_ID&
+	| client_secret=CLIENT_SECRET&
+	| grant_type=password&
+	| username=USERNAME&
+	| password=PASSWORD
 
 	For more examples, please view our `sample code`_.
 

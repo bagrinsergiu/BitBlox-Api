@@ -68,7 +68,14 @@
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/2/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
-<p><tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://testblox.info/oauth/v2/token?client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET&amp;grant_type=password&amp;username=USERNAME&amp;password=PASSWORD</span></tt></p>
+<div class="line-block">
+<div class="line">POST <a class="reference external" href="http://testblox.info/oauth/v2/token">http://testblox.info/oauth/v2/token</a>?</div>
+<div class="line">client_id=CLIENT_ID&amp;</div>
+<div class="line">client_secret=CLIENT_SECRET&amp;</div>
+<div class="line">grant_type=password&amp;</div>
+<div class="line">username=USERNAME&amp;</div>
+<div class="line">password=PASSWORD</div>
+</div>
 <p>For more examples, please view our <a class="reference internal" href="#sample-code">sample code</a>.</p>
 </div></blockquote>
 <div class="line-block">
