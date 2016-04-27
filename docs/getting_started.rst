@@ -34,7 +34,7 @@ Making Requests
 ===============
 	After authenticating, you can make requests. To make a request you simply need to point to ``http://testblox.com/api/``. It’s really that simple!
 
-	For reference, here is a list of our `API Explorer <http://docs.testblox.info/doc/api>`_, and `sample code`_.
+	For reference, here is a list of our `API Explorer <http://explorer.testblox.info/doc/api>`_, and `sample code`_.
 
 |
 |
@@ -74,7 +74,7 @@ Sample Code
 		import requests
 		from requests_oauthlib import OAuth1
 
-		auth = OAuth1("your-api-key", "your-api-secret")
+		auth = OAuth("your-api-key", "your-api-secret")
 		endpoint = "http://api.thenounproject.com/icon/1"
 
 		response = requests.get(endpoint, auth=auth)

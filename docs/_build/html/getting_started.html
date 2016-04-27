@@ -83,7 +83,7 @@
 <h2>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p>After authenticating, you can make requests. To make a request you simply need to point to <tt class="docutils literal"><span class="pre">http://testblox.com/api/</span></tt>. It’s really that simple!</p>
-<p>For reference, here is a list of our <a class="reference external" href="http://docs.testblox.info/doc/api">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
+<p>For reference, here is a list of our <a class="reference external" href="http://explorer.testblox.info/doc/api">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
 </div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -125,7 +125,7 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
 
-<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth1</span><span class="p">(</span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s">&quot;your-api-secret&quot;</span><span class="p">)</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">(</span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s">&quot;your-api-secret&quot;</span><span class="p">)</span>
 <span class="n">endpoint</span> <span class="o">=</span> <span class="s">&quot;http://api.thenounproject.com/icon/1&quot;</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
