@@ -1,9 +1,8 @@
-Noun Project API
+BitBlox API
 ****************
 
 
-Grab a hold of the *World's Visual Language*!
-Use it in your service or application.
+Welcome to BitBlox documentation.
 
 
 .. toctree::
