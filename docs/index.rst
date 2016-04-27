@@ -1,4 +1,4 @@
-BitBlox API
+BitBlox
 ****************
 
 
