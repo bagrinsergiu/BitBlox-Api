@@ -179,14 +179,16 @@ Multipass login is for store owners who have a separate website and a Shopify st
 
 		}
 
-		?>
-
 	|
 
 	.. code-block:: php
 
 		<?php
-			 $user_data = ["email" => "user email", "created_at" => \DateTime::ISO8601, "return_to" => "redirect to"];
+			 $user_data = [
+				 "email" => "user email",
+				 "created_at" => \DateTime::ISO8601,
+				 "return_to" => "redirect to"
+			 ];
 
 			 $multipass = new Multipass("application secret key");
 			 $token = $multipass->encode($user_data);
