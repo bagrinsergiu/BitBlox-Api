@@ -156,7 +156,93 @@
 <h2>Multipass<a class="headerlink" href="#multipass" title="Permalink to this headline">¶</a></h2>
 <p>Let&#8217;s say you are the owner of a successful website forum. All of your users must log in to the forum to contribute. Members of your forum can then purchase a forum t-shirt through your Shopify store. Unfortunately, your users have to log in to the forum first and then log in to your Shopify store before they can purchase a t-shirt.</p>
 <p>Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.</p>
-<p><tt class="docutils literal"><span class="pre">Information</span></tt> - The Multipass login feature is only available to Shopify Plus Customers.</p>
+<p><tt class="docutils literal"><span class="pre">Information</span></tt> - The Multipass login feature is only available to Remote Editor.</p>
+<blockquote>
+<div><p><strong>PHP:</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">);</span>
+
+<span class="k">class</span> <span class="nc">Multipass</span> <span class="p">{</span>
+
+        <span class="k">private</span> <span class="nv">$key</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">=</span> <span class="nv">$key</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Converts and signs a PHP object or array into a JWT string.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param object|array  $payload    PHP object or array</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string A signed JWT</span>
+<span class="sd">         *</span>
+<span class="sd">         * @uses jsonEncode</span>
+<span class="sd">         * @uses urlsafeB64Encode</span>
+<span class="sd">         */</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$header</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;typ&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;JWT&#39;</span><span class="p">,</span> <span class="s1">&#39;alg&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;HS256&#39;</span><span class="p">);</span>
+
+                <span class="nv">$segments</span>   <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$header</span><span class="p">));</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">));</span>
+
+                <span class="nv">$signing_input</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+
+                <span class="nv">$signature</span>  <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sign</span><span class="p">(</span><span class="nv">$signing_input</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">);</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
+
+                <span class="k">return</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Sign a string with a given key and algorithm.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string            $msg    The message to sign</span>
+<span class="sd">         * @param string|resource   $key    The secret key</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string An encrypted message</span>
+<span class="sd">         *</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">sign</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">&#39;SHA256&#39;</span><span class="p">,</span> <span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Encode a string with URL-safe Base64.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string $input The string you want encoded</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string The base64 encode of what you passed in</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">strtr</span><span class="p">(</span><span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">),</span> <span class="s1">&#39;+/&#39;</span><span class="p">,</span> <span class="s1">&#39;-_&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+         <span class="nv">$user_data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;user email&quot;</span><span class="p">,</span> <span class="s2">&quot;created_at&quot;</span> <span class="o">=&gt;</span> <span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">,</span> <span class="s2">&quot;return_to&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;redirect to&quot;</span><span class="p">];</span>
+
+         <span class="nv">$multipass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Multipass</span><span class="p">(</span><span class="s2">&quot;application secret key&quot;</span><span class="p">);</span>
+         <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$multipass</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$user_data</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 

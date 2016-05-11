@@ -106,4 +106,89 @@ Let's say you are the owner of a successful website forum. All of your users mus
 
 Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.
 
-``Information`` - The Multipass login feature is only available to Shopify Plus Customers.
+``Information`` - The Multipass login feature is only available to Remote Editor.
+
+	**PHP:**
+
+	.. code-block:: php
+
+		<?php
+
+		date_default_timezone_set("UTC");
+
+		class Multipass {
+
+			private $key;
+
+			public function __construct($key)
+			{
+				$this->key = $key;
+			}
+
+			/**
+			 * Converts and signs a PHP object or array into a JWT string.
+			 *
+			 * @param object|array  $payload    PHP object or array
+			 *
+			 * @return string A signed JWT
+			 *
+			 * @uses jsonEncode
+			 * @uses urlsafeB64Encode
+			 */
+			public function encode($payload)
+			{
+				$header = array('typ' => 'JWT', 'alg' => 'HS256');
+
+				$segments   = array();
+				$segments[] = $this->urlsafeB64Encode(json_encode($header));
+				$segments[] = $this->urlsafeB64Encode(json_encode($payload));
+
+				$signing_input = implode('.', $segments);
+
+				$signature  = $this->sign($signing_input, $this->key);
+				$segments[] = $this->urlsafeB64Encode($signature);
+
+				return implode('.', $segments);
+			}
+
+			/**
+			 * Sign a string with a given key and algorithm.
+			 *
+			 * @param string            $msg    The message to sign
+			 * @param string|resource   $key    The secret key
+			 *
+			 * @return string An encrypted message
+			 *
+			 */
+			private function sign($msg, $key)
+			{
+				return hash_hmac('SHA256', $msg, $key, true);
+			}
+
+			/**
+			 * Encode a string with URL-safe Base64.
+			 *
+			 * @param string $input The string you want encoded
+			 *
+			 * @return string The base64 encode of what you passed in
+			 */
+			private function urlsafeB64Encode($input)
+			{
+				return str_replace('=', '', strtr(base64_encode($input), '+/', '-_'));
+			}
+
+		}
+
+		?>
+
+	|
+
+	.. code-block:: php
+
+		<?php
+			 $user_data = ["email" => "user email", "created_at" => \DateTime::ISO8601, "return_to" => "redirect to"];
+
+			 $multipass = new Multipass("application secret key");
+			 $token = $multipass->encode($user_data);
+
+	|
