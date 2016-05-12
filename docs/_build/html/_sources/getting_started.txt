@@ -185,9 +185,11 @@ Multipass login is for store owners who have a separate website and a Shopify st
 	.. code-block:: php
 
 		<?php
+			 $date = new \DateTime();
+
 			 $user_data = [
 				 "email" => "user email",
-				 "created_at" => \DateTime::ISO8601,
+				 "created_at" => $date->format(\DateTime::ISO8601),
 				 "return_to" => "redirect to"
 			 ];
 

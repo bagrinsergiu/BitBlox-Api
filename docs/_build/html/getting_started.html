@@ -234,9 +234,11 @@
 <div class="line"><br /></div>
 </div>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+         <span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+
          <span class="nv">$user_data</span> <span class="o">=</span> <span class="p">[</span>
                  <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;user email&quot;</span><span class="p">,</span>
-                 <span class="s2">&quot;created_at&quot;</span> <span class="o">=&gt;</span> <span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">,</span>
+                 <span class="s2">&quot;created_at&quot;</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span>
                  <span class="s2">&quot;return_to&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;redirect to&quot;</span>
          <span class="p">];</span>
 
