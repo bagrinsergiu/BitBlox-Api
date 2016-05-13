@@ -115,15 +115,24 @@ Multipass login is for store owners who have a separate website and a Shopify st
 
 		<?php
 
-		date_default_timezone_set("UTC");
-
 		class Multipass {
 
-			private $key;
+			private $signature_key;
 
-			public function __construct($key)
+			private $encryption_key;
+
+			private $init_vector;
+
+			public function __construct($secret_key)
 			{
-				$this->key = $key;
+				$key_material = hash("SHA256", $secret_key, true);
+
+				$this->encryption_key = substr($key_material, 0, 16);
+				$this->signature_key  = substr($key_material, 16, 16);
+
+				$iv_material = hash("SHA256", $this->encryption_key, true);
+
+				$this->init_vector = substr($iv_material, 0, 16);
 			}
 
 			/**
@@ -138,15 +147,12 @@ Multipass login is for store owners who have a separate website and a Shopify st
 			 */
 			public function encode($payload)
 			{
-				$header = array('typ' => 'JWT', 'alg' => 'HS256');
+				$segments = array();
 
-				$segments   = array();
-				$segments[] = $this->urlsafeB64Encode(json_encode($header));
-				$segments[] = $this->urlsafeB64Encode(json_encode($payload));
-
+				$segments[] = $this->urlsafeB64Encode($this->encrypt(json_encode($payload), $this->encryption_key, $this->init_vector));
 				$signing_input = implode('.', $segments);
 
-				$signature  = $this->sign($signing_input, $this->key);
+				$signature = $this->sign($signing_input, $this->signature_key);
 				$segments[] = $this->urlsafeB64Encode($signature);
 
 				return implode('.', $segments);
@@ -178,6 +184,10 @@ Multipass login is for store owners who have a separate website and a Shopify st
 				return str_replace('=', '', strtr(base64_encode($input), '+/', '-_'));
 			}
 
+			public function encrypt($json_payload, $encryption_key, $init_vector)
+			{
+				return openssl_encrypt($json_payload, 'AES-128-CBC' , $encryption_key, OPENSSL_RAW_DATA, $init_vector);
+			}
 		}
 
 	|
@@ -185,6 +195,8 @@ Multipass login is for store owners who have a separate website and a Shopify st
 	.. code-block:: php
 
 		<?php
+ 			 date_default_timezone_set("UTC");
+
 			 $date = new \DateTime();
 
 			 $user_data = [
