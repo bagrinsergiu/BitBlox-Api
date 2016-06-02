@@ -11,53 +11,47 @@ API Keys
 |
 |
 
-Creating Token
-==============
-	The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many `established libraries <http://oauth.net/2/>`_ that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.
 
-	| POST http://testblox.info/oauth/v2/token?
-	| client_id=CLIENT_ID&
-	| client_secret=CLIENT_SECRET&
-	| grant_type=password&
-	| username=USERNAME&
-	| password=PASSWORD
+Creating Token Example
+======================
 
-	For more examples, please view our `sample code`_.
+	**PHP**
 
+	.. code-block:: php
+	
+		<?php
+		  $client_id = "public-api-key";
+		  $client_secret = "newly-generated-shared-secret";
+		  $grant_type = "password";
+		  $username = "username";
+		  $password = "password"
 
-|
-|
+		  $data = [
+		  	'client_id'     => $client_id,
+		  	'client_secret' => $client_secret,
+			'grant_type'    => $grant_type,
+			'username'      => $username,
+			'password'      => $password
+		  ];
 
-Sample Code
-===========
+		  $query_string = http_build_query($data) . "\n";
 
-	**Python:**
+		  $headers = array(
+			"Content-Type: application/json",
+			"Accept: application/json",
+			"Content-Length:" . strlen($data_string)
+		  );
 
-	.. code-block:: python
+		  $handler = curl_init('https://bodnar.info/oauth/v2/token?'.$query_string);
 
-		import requests
-		from requests_oauthlib import OAuth1
+		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
+		  curl_setopt($handler, CURLOPT_HTTPHEADER, $headers);
 
-		auth = OAuth("your-api-key", "your-api-secret")
-		endpoint = "http://api.thenounproject.com/icon/1"
+		  $response = curl_exec($handler);
+		?>
 
-		response = requests.get(endpoint, auth=auth)
-		print response.content
-
-	|
-
-	**Ruby:**
-
-	.. code-block:: ruby
-
-		require "oauth"
-
-		consumer = OAuth::Consumer.new("your-api-key", "your-api-secret")
-		access_token = OAuth::AccessToken.new consumer
-		endpoint = "http://api.thenounproject.com/icon/1"
-
-		response = access_token.get(endpoint)
-		puts response.body
+		<?php echo($response) ?>
+		<!-- {"access_token": "abracadabra"} -->
 
 |
 |

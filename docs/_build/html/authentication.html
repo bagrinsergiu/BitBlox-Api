@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
     <link rel="next" title="API Call Limit" href="api_call_limit.html" />
-    <link rel="prev" title="Getting Started" href="getting_started.html" /> 
+    <link rel="prev" title="Balance" href="balance.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,7 +38,7 @@
           <a href="api_call_limit.html" title="API Call Limit"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="balance.html" title="Balance"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
@@ -60,51 +60,43 @@
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="creating-token">
-<h2>Creating Token<a class="headerlink" href="#creating-token" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="creating-token-example">
+<h2>Creating Token Example<a class="headerlink" href="#creating-token-example" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><p>The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/2/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
-<div class="line-block">
-<div class="line">POST <a class="reference external" href="http://testblox.info/oauth/v2/token">http://testblox.info/oauth/v2/token</a>?</div>
-<div class="line">client_id=CLIENT_ID&amp;</div>
-<div class="line">client_secret=CLIENT_SECRET&amp;</div>
-<div class="line">grant_type=password&amp;</div>
-<div class="line">username=USERNAME&amp;</div>
-<div class="line">password=PASSWORD</div>
-</div>
-<p>For more examples, please view our <a class="reference internal" href="#sample-code">sample code</a>.</p>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="sample-code">
-<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p><strong>Python:</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
+<div><p><strong>PHP</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+  <span class="nv">$client_id</span> <span class="o">=</span> <span class="s2">&quot;public-api-key&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;newly-generated-shared-secret&quot;</span><span class="p">;</span>
+  <span class="nv">$grant_type</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span><span class="p">;</span>
+  <span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;username&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span>
 
-<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">(</span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s">&quot;your-api-secret&quot;</span><span class="p">)</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s">&quot;http://api.thenounproject.com/icon/1&quot;</span>
+  <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+        <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nv">$grant_type</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
+  <span class="p">];</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><strong>Ruby:</strong></p>
-<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;oauth&quot;</span>
+  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
 
-<span class="n">consumer</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:Consumer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s2">&quot;your-api-secret&quot;</span><span class="p">)</span>
-<span class="n">access_token</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:AccessToken</span><span class="o">.</span><span class="n">new</span> <span class="n">consumer</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;http://api.thenounproject.com/icon/1&quot;</span>
+  <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">&quot;Content-Type: application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Accept: application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Content-Length:&quot;</span> <span class="o">.</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$data_string</span><span class="p">)</span>
+  <span class="p">);</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">access_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">&#39;https://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">);</span>
+
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span><span class="p">(</span><span class="nv">$response</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;!-- {&quot;access_token&quot;: &quot;abracadabra&quot;} --&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -125,15 +117,14 @@
   <ul>
 <li><a class="reference internal" href="#">Authentication</a><ul>
 <li><a class="reference internal" href="#api-keys">API Keys</a></li>
-<li><a class="reference internal" href="#creating-token">Creating Token</a></li>
-<li><a class="reference internal" href="#sample-code">Sample Code</a></li>
+<li><a class="reference internal" href="#creating-token-example">Creating Token Example</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="getting_started.html"
-                        title="previous chapter">Getting Started</a></p>
+  <p class="topless"><a href="balance.html"
+                        title="previous chapter">Balance</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="api_call_limit.html"
                         title="next chapter">API Call Limit</a></p>
@@ -169,7 +160,7 @@
           <a href="api_call_limit.html" title="API Call Limit"
              >next</a> |</li>
         <li class="right" >
-          <a href="getting_started.html" title="Getting Started"
+          <a href="balance.html" title="Balance"
              >previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
