@@ -2,12 +2,14 @@
 Getting Started
 ===============
 
-
-|
-|
+.. note::
+* Nonce must be a minimum of 8 characters in length.
 
 Creating an API Key
 ===================
+
+	.. image:: _build/html/_static/comment.png
+
 	Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `app management page <http://testblox.info/applications>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 |
