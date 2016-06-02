@@ -105,6 +105,62 @@
 <div class="line"><br /></div>
 </div>
 </div>
+<div class="section" id="request-new-access-tokens">
+<h2>Request new access tokens<a class="headerlink" href="#request-new-access-tokens" title="Permalink to this headline">¶</a></h2>
+<p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
+GET <a class="reference external" href="https://bodnar.info/oauth/v2/token">https://bodnar.info/oauth/v2/token</a>?
+with the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The new Shared Secret for your app</li>
+<li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The refresh token is temporary, and can only be used for one hour after it has been generated.</p>
+</div>
+</div>
+<div class="section" id="example-implementations">
+<h2>Example Implementations<a class="headerlink" href="#example-implementations" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>PHP</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
+  <span class="nv">$grant_type</span>    <span class="o">=</span> <span class="s2">&quot;refresh_token&quot;</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;{REFRESH_TOKEN}&quot;</span><span class="p">;</span>
+
+  <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+        <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nv">$grant_type</span><span class="p">,</span>
+        <span class="s1">&#39;refresh_token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$refresh_token</span><span class="p">,</span>
+  <span class="p">];</span>
+
+  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+
+  <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s2">&quot;Content-Type: application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Accept: application/json&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Content-Length:&quot;</span> <span class="o">.</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$data_string</span><span class="p">)</span>
+  <span class="p">);</span>
+
+  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">&#39;https://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">);</span>
+
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+<span class="cp">&lt;?php</span> <span class="k">echo</span><span class="p">(</span><span class="nv">$response</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
+<span class="x">&lt;!-- {&quot;access_token&quot;: &quot;abracadabra&quot;} --&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -118,6 +174,8 @@
 <li><a class="reference internal" href="#">Authentication</a><ul>
 <li><a class="reference internal" href="#api-keys">API Keys</a></li>
 <li><a class="reference internal" href="#creating-token-example">Creating Token Example</a></li>
+<li><a class="reference internal" href="#request-new-access-tokens">Request new access tokens</a></li>
+<li><a class="reference internal" href="#example-implementations">Example Implementations</a></li>
 </ul>
 </li>
 </ul>
