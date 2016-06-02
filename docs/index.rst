@@ -9,6 +9,7 @@ Welcome to BitBlox documentation.
 	
 	getting_started
 	pricing
+	balance
 	authentication
 	api_call_limit
 	multipass
