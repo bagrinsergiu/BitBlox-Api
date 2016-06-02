@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting Started &mdash; BitBlox 1.0.0 documentation</title>
+    <title>Multipass &mdash; BitBlox 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -23,7 +23,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" /> 
+    <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
+    <link rel="next" title="Themes" href="re_themes.html" />
+    <link rel="prev" title="API Call Limit" href="api_call_limit.html" /> 
   </head>
   <body>
     <div class="related">
@@ -32,6 +34,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="re_themes.html" title="Themes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_call_limit.html" title="API Call Limit"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -41,113 +49,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="creating-an-api-key">
-<h2>Creating an API Key<a class="headerlink" href="#creating-an-api-key" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><img alt="_static/comment.png" src="_static/comment.png" />
-<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://testblox.info/applications">app management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="authentication">
-<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>The API is secured with OAuth 2. You must use your client key and secret to sign requests when accessing the API. There are many <a class="reference external" href="http://oauth.net/2/">established libraries</a> that will take care of authenticating calls for you. There is no need to provide an access token as our API endpoints do not yet support granting access to a users private data.</p>
-<div class="line-block">
-<div class="line">POST <a class="reference external" href="http://testblox.info/oauth/v2/token">http://testblox.info/oauth/v2/token</a>?</div>
-<div class="line">client_id=CLIENT_ID&amp;</div>
-<div class="line">client_secret=CLIENT_SECRET&amp;</div>
-<div class="line">grant_type=password&amp;</div>
-<div class="line">username=USERNAME&amp;</div>
-<div class="line">password=PASSWORD</div>
-</div>
-<p>For more examples, please view our <a class="reference internal" href="#sample-code">sample code</a>.</p>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="making-requests">
-<h2>Making Requests<a class="headerlink" href="#making-requests" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>After authenticating, you can make requests. To make a request you simply need to point to <tt class="docutils literal"><span class="pre">http://testblox.com/api/</span></tt>. It’s really that simple!</p>
-<p>For reference, here is a list of our <a class="reference external" href="http://explorer.testblox.info/doc/api">API Explorer</a>, and <a class="reference internal" href="#sample-code">sample code</a>.</p>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="supported-file-formats-and-http-responses">
-<h2>Supported File Formats and HTTP Responses<a class="headerlink" href="#supported-file-formats-and-http-responses" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p>Every request will return a JSON response or an error response.</p>
-<p><strong>Examples:</strong></p>
-<ul class="simple">
-<li><tt class="docutils literal"><span class="pre">200</span> <span class="pre">Success</span></tt> - Returned when all ok</li>
-<li><tt class="docutils literal"><span class="pre">201</span> <span class="pre">Created</span></tt> - Returned when the object is created</li>
-<li><tt class="docutils literal"><span class="pre">400</span> <span class="pre">Bad</span> <span class="pre">Request</span></tt> - Returned when an error has occurred while object creation</li>
-<li><tt class="docutils literal"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">found</span></tt> - Returned when unable to find object</li>
-<li><tt class="docutils literal"><span class="pre">401</span> <span class="pre">Unauthorized</span></tt> - Unauthorized access</li>
-<li><tt class="docutils literal"><span class="pre">429</span> <span class="pre">Too</span> <span class="pre">many</span> <span class="pre">requests</span></tt> - Return when a client hits the rate limit (limit=7200, period=3600)</li>
-</ul>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="pricing">
-<h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>We have plans of all sizes, and can customize plans to meet your needs. Please visit the <a class="reference external" href="http://testblox.info/developers">developers page</a> for more information on our API pricing.</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="sample-code">
-<h2>Sample Code<a class="headerlink" href="#sample-code" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><p><strong>Python:</strong></p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">requests_oauthlib</span> <span class="kn">import</span> <span class="n">OAuth1</span>
-
-<span class="n">auth</span> <span class="o">=</span> <span class="n">OAuth</span><span class="p">(</span><span class="s">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s">&quot;your-api-secret&quot;</span><span class="p">)</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s">&quot;http://api.thenounproject.com/icon/1&quot;</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
-</pre></div>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><strong>Ruby:</strong></p>
-<div class="highlight-ruby"><div class="highlight"><pre><span class="nb">require</span> <span class="s2">&quot;oauth&quot;</span>
-
-<span class="n">consumer</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:Consumer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;your-api-key&quot;</span><span class="p">,</span> <span class="s2">&quot;your-api-secret&quot;</span><span class="p">)</span>
-<span class="n">access_token</span> <span class="o">=</span> <span class="ss">OAuth</span><span class="p">:</span><span class="ss">:AccessToken</span><span class="o">.</span><span class="n">new</span> <span class="n">consumer</span>
-<span class="n">endpoint</span> <span class="o">=</span> <span class="s2">&quot;http://api.thenounproject.com/icon/1&quot;</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">access_token</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
-</pre></div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="multipass">
-<h2>Multipass<a class="headerlink" href="#multipass" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="multipass">
+<h1>Multipass<a class="headerlink" href="#multipass" title="Permalink to this headline">¶</a></h1>
 <p>Let&#8217;s say you are the owner of a successful website forum. All of your users must log in to the forum to contribute. Members of your forum can then purchase a forum t-shirt through your Shopify store. Unfortunately, your users have to log in to the forum first and then log in to your Shopify store before they can purchase a t-shirt.</p>
 <p>Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.</p>
 <blockquote>
@@ -257,7 +160,6 @@
 </div>
 </div></blockquote>
 </div>
-</div>
 
 
           </div>
@@ -265,23 +167,15 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Getting Started</a><ul>
-<li><a class="reference internal" href="#creating-an-api-key">Creating an API Key</a></li>
-<li><a class="reference internal" href="#authentication">Authentication</a></li>
-<li><a class="reference internal" href="#making-requests">Making Requests</a></li>
-<li><a class="reference internal" href="#supported-file-formats-and-http-responses">Supported File Formats and HTTP Responses</a></li>
-<li><a class="reference internal" href="#pricing">Pricing</a></li>
-<li><a class="reference internal" href="#sample-code">Sample Code</a></li>
-<li><a class="reference internal" href="#multipass">Multipass</a></li>
-</ul>
-</li>
-</ul>
-
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api_call_limit.html"
+                        title="previous chapter">API Call Limit</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="re_themes.html"
+                        title="next chapter">Themes</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/remote_editor.txt"
+    <li><a href="_sources/multipass.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -307,6 +201,12 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="re_themes.html" title="Themes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_call_limit.html" title="API Call Limit"
+             >previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
