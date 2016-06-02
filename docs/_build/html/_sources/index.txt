@@ -8,6 +8,7 @@ Welcome to BitBlox documentation.
 .. toctree::
 	
 	getting_started
+	remote_editor
 	pricing
 	balance
 	authentication
