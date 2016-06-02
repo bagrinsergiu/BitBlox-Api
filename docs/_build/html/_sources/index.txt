@@ -1,5 +1,5 @@
 BitBlox
-****************
+*******
 
 
 Welcome to BitBlox documentation.
