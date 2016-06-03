@@ -42,11 +42,12 @@ Creating Token Example
 		  curl_setopt($handler, CURLOPT_URL, $url);
 		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
-		  $output = curl_exec($handler);
+		  $response = curl_exec($handler);
 
-		  echo $output;
+		  $response = json_decode($response);
 
-		  curl_close($handler);
+          $access_token  = $response->access_token;
+		  $refresh_token = $response->refresh_token;
 
 		?>
 
@@ -96,9 +97,11 @@ Example Implementations
 		  curl_setopt($handler, CURLOPT_URL, $url);
 		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
-		  $output = curl_exec($handler);
+		  $response = curl_exec($handler);
 
-		  echo $output;
+		  $response = json_decode($response);
 
-		  curl_close($handler);
+          $access_token  = $response->access_token;
+		  $refresh_token = $response->refresh_token;
+
 		?>
