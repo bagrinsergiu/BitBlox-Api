@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/api_reference.rst" afterPath="$PROJECT_DIR$/docs/api_reference.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" afterPath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/getting_started.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/getting_started.doctree" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/getting_started.html" afterPath="$PROJECT_DIR$/docs/_build/html/getting_started.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/getting_started.rst" afterPath="$PROJECT_DIR$/docs/getting_started.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/getting_started.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/getting_started.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/index.html" afterPath="$PROJECT_DIR$/docs/_build/html/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/re_applications.rst" afterPath="$PROJECT_DIR$/docs/re_applications.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/re_themes.rst" afterPath="$PROJECT_DIR$/docs/re_themes.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/searchindex.js" afterPath="$PROJECT_DIR$/docs/_build/html/searchindex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_docs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -60,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="re_themes.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="re_themes.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/re_themes.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.077419356">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/docs/re_applications.rst">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="12" />
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -120,10 +129,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_reference.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api_reference.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.038709678">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding />
             </state>
@@ -142,17 +151,17 @@
         <option value="$PROJECT_DIR$/docs/documentation.rst" />
         <option value="$PROJECT_DIR$/docs/test.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
-        <option value="$PROJECT_DIR$/docs/re_applications.rst" />
         <option value="$PROJECT_DIR$/docs/pricing.rst" />
         <option value="$PROJECT_DIR$/docs/multipass.rst" />
         <option value="$PROJECT_DIR$/docs/api_call_limit.rst" />
         <option value="$PROJECT_DIR$/docs/balance.rst" />
-        <option value="$PROJECT_DIR$/docs/re_themes.rst" />
         <option value="$PROJECT_DIR$/docs/remote_editor.rst" />
         <option value="$PROJECT_DIR$/docs/authentication.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
-        <option value="$PROJECT_DIR$/docs/getting_started.rst" />
         <option value="$PROJECT_DIR$/docs/api_reference.rst" />
+        <option value="$PROJECT_DIR$/docs/getting_started.rst" />
+        <option value="$PROJECT_DIR$/docs/re_applications.rst" />
+        <option value="$PROJECT_DIR$/docs/re_themes.rst" />
       </list>
     </option>
   </component>
@@ -656,22 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/re_applications.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/re_themes.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/pricing.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -704,18 +697,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
+    <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
+    <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.038709678">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/re_applications.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/re_themes.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.077419356">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
