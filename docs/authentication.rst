@@ -22,7 +22,7 @@ For creating access token: ``GET http://bodnar.info/oauth/v2/token?`` with the f
 
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The Secret Key for your app
-	- ``grant_type (required)``: Grant Type represents the flow needed for the Client to obtain Access Token.
+	- ``grant_type (required)``: represents the flow needed for the Client to obtain Access Token.
 	- ``username (required)``: Client username.
 	- ``password (required)``: Client password.
 
@@ -82,6 +82,7 @@ with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The new Shared Secret for your app
+    - ``grant_type (required)``: represents the flow needed for the Client to obtain Access Token.
 	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard
 
 .. 	note::

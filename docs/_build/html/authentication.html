@@ -71,7 +71,7 @@
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
 <li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Secret Key for your app</li>
-<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Grant Type represents the flow needed for the Client to obtain Access Token.</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: represents the flow needed for the Client to obtain Access Token.</li>
 <li><tt class="docutils literal"><span class="pre">username</span> <span class="pre">(required)</span></tt>: Client username.</li>
 <li><tt class="docutils literal"><span class="pre">password</span> <span class="pre">(required)</span></tt>: Client password.</li>
 </ul>
@@ -133,10 +133,21 @@
 GET <a class="reference external" href="https://bodnar.info/oauth/v2/token">https://bodnar.info/oauth/v2/token</a>?
 with the following parameters:</p>
 <blockquote>
+<div><blockquote>
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
 <li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The new Shared Secret for your app</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><dl class="first docutils">
+<dt><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: represents the flow needed for the Client to obtain Access Token.</dt>
+<dd><ul class="first last simple">
 <li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard</li>
+</ul>
+</dd>
+</dl>
+</li>
 </ul>
 </div></blockquote>
 <div class="admonition note">
