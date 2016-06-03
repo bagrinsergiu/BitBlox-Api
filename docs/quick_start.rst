@@ -17,8 +17,8 @@ Any Shopify app that you create will use the Shopify API to access another shop'
 |
 |
 
-Creating Remote Editor
-======================
+Step 1: Creating Remote Editor
+==============================
 
 To start developing your remote editor, you need to become a BitBlox Developer by registering `here <http://bodnar.info/register/developer>`_ for your free BitBlox Developer account. As a BitBlox Developer, you gain access to the Developer dashboard where you can create Remote Editor. To create a Remote Editor:
 
@@ -29,15 +29,22 @@ To start developing your remote editor, you need to become a BitBlox Developer b
 |
 |
 
-DNS Settings
-============
+Step 2: DNS Settings
+====================
 
 ``* CNAME bitblox.site``
 
 
-Pricing
-=======
-About Pricing
+Step 3: Themes
+==============
+About Themes
+
+|
+|
+
+Step 4: Applications
+====================
+About Applications
 
 |
 |
@@ -49,20 +56,11 @@ About Balance
 |
 |
 
-Themes
-======
-About Themes
+Pricing
+=======
+About Pricing
 
 |
 |
-
-Applications
-============
-About Applications
-
-|
-|
-
-
 
 
