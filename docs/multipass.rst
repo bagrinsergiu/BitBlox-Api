@@ -14,6 +14,11 @@ Multipass login is for store owners who have a separate website and a Shopify st
 
 Implementation
 ==============
+
+**1. Encode your user information using JSON**
+
+The user information is represented as a hash which must contain at least the email address of the user and a current timestamp (in ISO8601 encoding).
+
 .. code-block:: javascript
 
 	{
@@ -24,7 +29,29 @@ Implementation
 
 |
 
-``Request url: http://{project_name}.{your_domain}/multipass/login/{token}``
+**2. Encrypt the JSON data using AES**
+
+To generate a valid multipass login token, you need the secret given to you in your BitBlox Developer admin. The secret is used to derive two cryptographic keys — one for encryption and one for signing. This key derivation is done through the use of the SHA-256 hash function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).
+
+The encryption provides confidentiality. It makes sure that no one can read the customer data. As encryption cipher, we use the AES algorithm (128 bit key length, CBC mode of operation, random initialization vector).
+
+**3. Sign the encrypted data using HMAC**
+
+The signature (also called message authentication code) provides authenticity. It makes sure that the multipass token is authentic and hasn't been tampered with. We use the HMAC algorithm with a SHA-256 hash function and we sign the encrypted JSON data from step 2 (not the plaintext JSON data from step 1).
+
+**4. Base64 encode the binary data**
+
+The multipass login token now consists of the 128 bit initialization vector, a variable length ciphertext, and a 256 bit signature (in this order). This data is encoded using base64 (URL-safe variant, RFC 4648).
+
+**5. Redirect your user to your website**
+
+Once you have the token, you should trigger a HTTP GET request.
+
+``GET: http://{project_name}.{your_domain}/multipass/login/{token}``
+
+When the request is successful (e.g. the token is valid and not expired), the user will be logged and returned to your website from ``return_to`` param.
+
+The multipass token is only valid within a very short timeframe and each token can only be used once. For those reasons, you should not generate tokens in advance for rendering them into your HTML sites. You should create a redirect URL which generates tokens on-the-fly when needed and then automatically redirects the browser.
 
 |
 |

@@ -24,7 +24,6 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
-    <link rel="next" title="Pricing" href="pricing.html" />
     <link rel="prev" title="API Call Limit" href="api_call_limit.html" /> 
   </head>
   <body>
@@ -34,9 +33,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="pricing.html" title="Pricing"
-             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="api_call_limit.html" title="API Call Limit"
              accesskey="P">previous</a> |</li>
@@ -63,6 +59,8 @@
 </div>
 <div class="section" id="implementation">
 <h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<p><strong>1. Encode your user information using JSON</strong></p>
+<p>The user information is represented as a hash which must contain at least the email address of the user and a current timestamp (in ISO8601 encoding).</p>
 <div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
         <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;bob@shopify.com&quot;</span><span class="p">,</span>
         <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;2013-04-11T15:16:23-04:00&quot;</span><span class="p">,</span>
@@ -73,7 +71,18 @@
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">Request</span> <span class="pre">url:</span> <span class="pre">http://{project_name}.{your_domain}/multipass/login/{token}</span></tt></p>
+<p><strong>2. Encrypt the JSON data using AES</strong></p>
+<p>To generate a valid multipass login token, you need the secret given to you in your BitBlox Developer admin. The secret is used to derive two cryptographic keys — one for encryption and one for signing. This key derivation is done through the use of the SHA-256 hash function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).</p>
+<p>The encryption provides confidentiality. It makes sure that no one can read the customer data. As encryption cipher, we use the AES algorithm (128 bit key length, CBC mode of operation, random initialization vector).</p>
+<p><strong>3. Sign the encrypted data using HMAC</strong></p>
+<p>The signature (also called message authentication code) provides authenticity. It makes sure that the multipass token is authentic and hasn&#8217;t been tampered with. We use the HMAC algorithm with a SHA-256 hash function and we sign the encrypted JSON data from step 2 (not the plaintext JSON data from step 1).</p>
+<p><strong>4. Base64 encode the binary data</strong></p>
+<p>The multipass login token now consists of the 128 bit initialization vector, a variable length ciphertext, and a 256 bit signature (in this order). This data is encoded using base64 (URL-safe variant, RFC 4648).</p>
+<p><strong>5. Redirect your user to your website</strong></p>
+<p>Once you have the token, you should trigger a HTTP GET request.</p>
+<p><tt class="docutils literal"><span class="pre">GET:</span> <span class="pre">http://{project_name}.{your_domain}/multipass/login/{token}</span></tt></p>
+<p>When the request is successful (e.g. the token is valid and not expired), the user will be logged and returned to your website from <tt class="docutils literal"><span class="pre">return_to</span></tt> param.</p>
+<p>The multipass token is only valid within a very short timeframe and each token can only be used once. For those reasons, you should not generate tokens in advance for rendering them into your HTML sites. You should create a redirect URL which generates tokens on-the-fly when needed and then automatically redirects the browser.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -204,9 +213,6 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="api_call_limit.html"
                         title="previous chapter">API Call Limit</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="pricing.html"
-                        title="next chapter">Pricing</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/multipass.txt"
@@ -235,9 +241,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="pricing.html" title="Pricing"
-             >next</a> |</li>
         <li class="right" >
           <a href="api_call_limit.html" title="API Call Limit"
              >previous</a> |</li>

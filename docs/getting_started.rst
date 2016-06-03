@@ -1,6 +1,6 @@
-===============
-Getting Started
-===============
+===========
+Quick Start
+===========
 Welcome to BitBlox's API documentation.
 
 |
@@ -29,7 +29,33 @@ To start developing your remote editor, you need to become a BitBlox Developer b
 |
 |
 
+Pricing
+=======
+About Pricing
 
+|
+|
+
+Balance
+=======
+About Balance
+
+|
+|
+
+Themes
+======
+About Themes
+
+|
+|
+
+Applications
+============
+About Applications
+
+|
+|
 
 
 
