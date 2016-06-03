@@ -53,14 +53,23 @@
 <h1>Multipass<a class="headerlink" href="#multipass" title="Permalink to this headline">¶</a></h1>
 <p>Let&#8217;s say you are the owner of a successful website forum. All of your users must log in to the forum to contribute. Members of your forum can then purchase a forum t-shirt through your Shopify store. Unfortunately, your users have to log in to the forum first and then log in to your Shopify store before they can purchase a t-shirt.</p>
 <p>Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.</p>
-<div class="admonition attention">
-<p class="first admonition-title">Attention</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
 <p class="last">The Multipass login feature is only available for Remote Editor users.</p>
 </div>
-<div class="admonition attention">
-<p class="first admonition-title">Attention</p>
-<p>Request url: <a class="reference external" href="http:/">http:/</a>/{project_name}.{your_domain}/multipass/login/{token}</p>
-<p><strong>PHP:</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Request</span> <span class="pre">url:</span> <span class="pre">http://{project_name}.{your_domain}/multipass/login/{token}</span></tt></li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>PHP:</strong></p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
 
 <span class="k">class</span> <span class="nc">Multipass</span> <span class="p">{</span>
@@ -157,10 +166,10 @@
          <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$multipass</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$user_data</span><span class="p">);</span>
 </pre></div>
 </div>
-<div class="last line-block">
+<div class="line-block">
 <div class="line"><br /></div>
 </div>
-</div>
+</div></blockquote>
 </div>
 
 
