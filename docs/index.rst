@@ -7,7 +7,7 @@ Welcome to BitBlox documentation.
 
 .. toctree::
 	
-	getting_started
+	quick_start
 	authentication
 	api_call_limit
 	multipass
