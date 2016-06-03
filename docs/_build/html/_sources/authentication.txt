@@ -122,7 +122,7 @@ Step 4: Example Implementations
 
 		  $response = json_decode($response);
 
-          $access_token  = $response->access_token;
+		  $access_token  = $response->access_token;
 		  $refresh_token = $response->refresh_token;
 
 		?>
