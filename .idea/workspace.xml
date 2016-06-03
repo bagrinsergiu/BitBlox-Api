@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/docs/remote_editor.rst" afterPath="$PROJECT_DIR$/docs/api_reference.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.rst" afterPath="$PROJECT_DIR$/docs/index.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" afterPath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/api_reference.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/api_reference.doctree" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/api_reference.html" afterPath="$PROJECT_DIR$/docs/_build/html/api_reference.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/api_reference.rst" afterPath="$PROJECT_DIR$/docs/api_reference.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/api_reference.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/api_reference.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/getting_started.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/getting_started.doctree" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/getting_started.html" afterPath="$PROJECT_DIR$/docs/_build/html/getting_started.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/getting_started.rst" afterPath="$PROJECT_DIR$/docs/getting_started.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/getting_started.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/getting_started.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/index.html" afterPath="$PROJECT_DIR$/docs/_build/html/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/searchindex.js" afterPath="$PROJECT_DIR$/docs/_build/html/searchindex.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_docs.iws" />
@@ -32,21 +41,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25971144">
+            <state vertical-scroll-proportion="-8.068966">
               <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getting_started.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getting_started.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.09677419">
+              <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -126,7 +135,7 @@
         <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -144,7 +153,6 @@
         <option value="$PROJECT_DIR$/docs/documentation.rst" />
         <option value="$PROJECT_DIR$/docs/test.rst" />
         <option value="$PROJECT_DIR$/docs/conf.py" />
-        <option value="$PROJECT_DIR$/docs/getting_started.rst" />
         <option value="$PROJECT_DIR$/docs/re_applications.rst" />
         <option value="$PROJECT_DIR$/docs/pricing.rst" />
         <option value="$PROJECT_DIR$/docs/multipass.rst" />
@@ -154,6 +162,8 @@
         <option value="$PROJECT_DIR$/docs/remote_editor.rst" />
         <option value="$PROJECT_DIR$/docs/authentication.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
+        <option value="$PROJECT_DIR$/docs/api_reference.rst" />
+        <option value="$PROJECT_DIR$/docs/getting_started.rst" />
       </list>
     </option>
   </component>
@@ -641,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="2" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/balance.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -697,14 +699,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -715,8 +709,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25971144">
+        <state vertical-scroll-proportion="-8.068966">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/api_reference.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/getting_started.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09677419">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding />
         </state>
       </provider>
