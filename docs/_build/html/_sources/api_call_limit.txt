@@ -24,7 +24,7 @@ How to avoid the 429 error
 
 Some things to remember:
 
-- You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
+You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
 
 - ``X-RateLimit-Limit:7200``
 - ``X-RateLimit-Remaining:7199``
