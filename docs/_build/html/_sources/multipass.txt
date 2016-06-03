@@ -9,11 +9,13 @@ Multipass login is for store owners who have a separate website and a Shopify st
 .. note::
 	The Multipass login feature is only available for Remote Editor users.
 
-|
-
-	- ``Request url: http://{project_name}.{your_domain}/multipass/login/{token}``
+``Request url: http://{project_name}.{your_domain}/multipass/login/{token}``
 
 |
+|
+
+Example implementation
+======================
 
 	**PHP:**
 
