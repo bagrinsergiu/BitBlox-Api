@@ -1,4 +1,5 @@
-====================
-Remote Editor Themes
-====================
+======
+Themes
+======
 
+You can disable default themes and create your own.
