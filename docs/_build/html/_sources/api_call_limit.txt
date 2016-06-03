@@ -24,14 +24,12 @@ How to avoid the 429 error
 
 Some things to remember:
 
-- You can check how many calls you've already made using the Shopify header that was sent in response to your API call:
+- You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
 
-HTTP_X_SHOPIFY_SHOP_API_CALL_LIMIT (lists how many calls you've made for that particular shop)
-
-``X-Shopify-Shop-Api-Call-Limit: 32/40``
+- ``X-RateLimit-Limit:7200``
+- ``X-RateLimit-Remaining:7199``
+- ``X-RateLimit-Reset:1464952507``
 
 Keep in mind that X will decrease over time. If you see you're at 39/40 calls, and wait 10 seconds, you'll be down to 19/40 calls.
-- You can only get a maximum of 250 orders or products with one API call
-- You can only update one order or product with one API call
 
 Let's use a real-world example (in this case, deleting products that are out of stock) to demonstrate how to make your program pause and resume.
