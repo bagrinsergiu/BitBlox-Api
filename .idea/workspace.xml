@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" afterPath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/quick_start.rst" afterPath="$PROJECT_DIR$/docs/quick_start.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/searchindex.js" afterPath="$PROJECT_DIR$/docs/_build/html/searchindex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_docs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +46,8 @@
       <file leaf-file-name="quick_start.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/quick_start.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7096774">
-              <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5419355">
+              <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -103,6 +106,7 @@
         <option value="$PROJECT_DIR$/docs/api_call_limit.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/authentication.rst" />
+        <option value="$PROJECT_DIR$/docs/errors.rst" />
         <option value="$PROJECT_DIR$/docs/quick_start.rst" />
       </list>
     </option>
@@ -599,14 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.586207">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/multipass.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -631,10 +627,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.586207">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docs/quick_start.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7096774">
-          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.5419355">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding />
         </state>
       </provider>

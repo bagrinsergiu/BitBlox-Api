@@ -29,11 +29,16 @@ To start developing your remote editor, you need to become a BitBlox Developer b
 |
 |
 
-Step 2: DNS Settings
-====================
+Step 2: Manage DNS Settings
+===========================
+1. Log in to your Domain provider dashboard
+2. Set CNAME record
 
-``* CNAME bitblox.site``
-
++------------+------------+---------------+
+| Type       | Name       | Value         |
++============+============+===============+
+| CName      |   *        | bitblox.site  |
++------------+------------+---------------+
 
 Step 3: Themes
 ==============
