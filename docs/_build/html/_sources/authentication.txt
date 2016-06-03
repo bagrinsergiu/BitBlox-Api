@@ -20,38 +20,35 @@ Creating Token Example
 	.. code-block:: php
 
 		<?php
-		  $client_id = "public-api-key";
-		  $client_secret = "newly-generated-shared-secret";
-		  $grant_type = "password";
-		  $username = "username";
-		  $password = "password"
+		  $client_id     = "{CLIENT_ID}";
+		  $client_secret = "{CLIENT_SECRET}";
+		  $username      = "{USERNAME}";
+		  $password      = "{PASSWORD}"
 
 		  $data = [
 		  	'client_id'     => $client_id,
 		  	'client_secret' => $client_secret,
-			'grant_type'    => $grant_type,
+			'grant_type'    => "password",
 			'username'      => $username,
 			'password'      => $password
 		  ];
 
-		  $query_string = http_build_query($data) . "\n";
+		  $query_string = http_build_query($data);
 
-		  $headers = array(
-			"Content-Type: application/json",
-			"Accept: application/json",
-			"Content-Length:" . strlen($data_string)
-		  );
+		  $url = 'http://bodnar.info/oauth/v2/token?'.$query_string;
 
-		  $handler = curl_init('https://bodnar.info/oauth/v2/token?'.$query_string);
+		  $handler = curl_init();
 
-		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
-		  curl_setopt($handler, CURLOPT_HTTPHEADER, $headers);
+		  curl_setopt($handler, CURLOPT_URL, $url);
+		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
-		  $response = curl_exec($handler);
+		  $output = curl_exec($handler);
+
+		  echo $output;
+
+		  curl_close($handler);
+
 		?>
-
-		<?php echo($response) ?>
-		<!-- {"access_token": "abracadabra"} -->
 
 |
 |
@@ -81,31 +78,27 @@ Example Implementations
 		<?php
 		  $client_id     = "{CLIENT_ID}";
 		  $client_secret = "{CLIENT_SECRET}";
-		  $grant_type    = "refresh_token";
 		  $refresh_token = "{REFRESH_TOKEN}";
 
 		  $data = [
 		  	'client_id'     => $client_id,
 		  	'client_secret' => $client_secret,
-			'grant_type'    => $grant_type,
+			'grant_type'    => "refresh_token",
 			'refresh_token' => $refresh_token,
 		  ];
 
-		  $query_string = http_build_query($data) . "\n";
+		  $query_string = http_build_query($data);
 
-		  $headers = array(
-			"Content-Type: application/json",
-			"Accept: application/json",
-			"Content-Length:" . strlen($data_string)
-		  );
+		  $url = 'http://bodnar.info/oauth/v2/token?'.$query_string;
 
-		  $handler = curl_init('https://bodnar.info/oauth/v2/token?'.$query_string);
+		  $handler = curl_init();
 
-		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, true);
-		  curl_setopt($handler, CURLOPT_HTTPHEADER, $headers);
+		  curl_setopt($handler, CURLOPT_URL, $url);
+		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
 
-		  $response = curl_exec($handler);
+		  $output = curl_exec($handler);
+
+		  echo $output;
+
+		  curl_close($handler);
 		?>
-
-		<?php echo($response) ?>
-		<!-- {"access_token": "abracadabra"} -->

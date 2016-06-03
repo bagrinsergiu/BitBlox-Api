@@ -65,38 +65,35 @@
 <blockquote>
 <div><p><strong>PHP</strong></p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
-  <span class="nv">$client_id</span> <span class="o">=</span> <span class="s2">&quot;public-api-key&quot;</span><span class="p">;</span>
-  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;newly-generated-shared-secret&quot;</span><span class="p">;</span>
-  <span class="nv">$grant_type</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span><span class="p">;</span>
-  <span class="nv">$username</span> <span class="o">=</span> <span class="s2">&quot;username&quot;</span><span class="p">;</span>
-  <span class="nv">$password</span> <span class="o">=</span> <span class="s2">&quot;password&quot;</span>
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
+  <span class="nv">$username</span>      <span class="o">=</span> <span class="s2">&quot;{USERNAME}&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{PASSWORD}&quot;</span>
 
   <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
         <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
-        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nv">$grant_type</span><span class="p">,</span>
+        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
         <span class="s1">&#39;username&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
         <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
   <span class="p">];</span>
 
-  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-  <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s2">&quot;Content-Type: application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Accept: application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Content-Length:&quot;</span> <span class="o">.</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$data_string</span><span class="p">)</span>
-  <span class="p">);</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
 
-  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">&#39;https://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">);</span>
+  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+  <span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+
+  <span class="k">echo</span> <span class="nv">$output</span><span class="p">;</span>
+
+  <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+
 <span class="cp">?&gt;</span><span class="x"></span>
-
-<span class="cp">&lt;?php</span> <span class="k">echo</span><span class="p">(</span><span class="nv">$response</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;!-- {&quot;access_token&quot;: &quot;abracadabra&quot;} --&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -129,34 +126,30 @@ with the following parameters:</p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
   <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
   <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
-  <span class="nv">$grant_type</span>    <span class="o">=</span> <span class="s2">&quot;refresh_token&quot;</span><span class="p">;</span>
   <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;{REFRESH_TOKEN}&quot;</span><span class="p">;</span>
 
   <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
         <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
-        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nv">$grant_type</span><span class="p">,</span>
+        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;refresh_token&quot;</span><span class="p">,</span>
         <span class="s1">&#39;refresh_token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$refresh_token</span><span class="p">,</span>
   <span class="p">];</span>
 
-  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-  <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-        <span class="s2">&quot;Content-Type: application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Accept: application/json&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Content-Length:&quot;</span> <span class="o">.</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$data_string</span><span class="p">)</span>
-  <span class="p">);</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
 
-  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span><span class="s1">&#39;https://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">);</span>
+  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="nv">$headers</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+  <span class="nv">$output</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+
+  <span class="k">echo</span> <span class="nv">$output</span><span class="p">;</span>
+
+  <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
 <span class="cp">?&gt;</span><span class="x"></span>
-
-<span class="cp">&lt;?php</span> <span class="k">echo</span><span class="p">(</span><span class="nv">$response</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
-<span class="x">&lt;!-- {&quot;access_token&quot;: &quot;abracadabra&quot;} --&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
