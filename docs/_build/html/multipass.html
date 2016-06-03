@@ -55,12 +55,29 @@
 <p>Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The Multipass login feature is only available for Remote Editor users.</p>
+<p class="last">The Multipass login feature is <strong>only</strong> available for Remote Editor <a class="reference external" href="http://docs.testblox.info/en/latest/api_reference.html#user">users</a>.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="section" id="implementation">
+<h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;bob@shopify.com&quot;</span><span class="p">,</span>
+        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;2013-04-11T15:16:23-04:00&quot;</span><span class="p">,</span>
+        <span class="nx">return_to</span><span class="o">:</span> <span class="s2">&quot;redirect_url&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 <p><tt class="docutils literal"><span class="pre">Request</span> <span class="pre">url:</span> <span class="pre">http://{project_name}.{your_domain}/multipass/login/{token}</span></tt></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
+</div>
 </div>
 <div class="section" id="example-implementation">
 <h2>Example implementation<a class="headerlink" href="#example-implementation" title="Permalink to this headline">¶</a></h2>
@@ -178,6 +195,7 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Multipass</a><ul>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
 <li><a class="reference internal" href="#example-implementation">Example implementation</a></li>
 </ul>
 </li>
