@@ -6,18 +6,32 @@ The API call limit operates using a "leaky bucket" algorithm as a controller. Th
 
 Your API calls will be processed almost instantly if there is room in your "bucket". Unlike some integrations of the leaky bucket algorithm that aim to "smooth out" (slow down) operations, you can make quick bursts of API calls that exceed the leak rate. The bucket analogy is still a limit that we are tracking, but your processing speed for API calls is not directly limited to the leak rate of 2 calls per second.
 
-**Are you going over the API limit?**
+|
+|
+
+Are you going over the API limit?
+=================================
 
 Automated tasks that pause and resume are the best way to stay within the API call limit since you don't need to wait while things get done.
 
-This article will show you how to tell your program to take small pauses to keep your app a few API calls shy of the API call limit and to guard you against a 429 - Too Many Requests error.
+This article will show you how to tell your program to take small pauses to keep your app a few API calls shy of the API call limit and to guard you against a **429 - Too Many Requests error.**
 
-**How to avoid the 429 error**
+|
+|
+
+How to avoid the 429 error
+==========================
+
 Some things to remember:
-- You can check how many calls you've already made using the BitBlox header that was sent in response to your API call: CALL_LIMIT (lists how many calls you've made for that particular shop)
+
+- You can check how many calls you've already made using the Shopify header that was sent in response to your API call:
+
+HTTP_X_SHOPIFY_SHOP_API_CALL_LIMIT (lists how many calls you've made for that particular shop)
+
+``X-Shopify-Shop-Api-Call-Limit: 32/40``
 
 Keep in mind that X will decrease over time. If you see you're at 39/40 calls, and wait 10 seconds, you'll be down to 19/40 calls.
+- You can only get a maximum of 250 orders or products with one API call
+- You can only update one order or product with one API call
 
-**Example**
-
-This example would only happen in "edge cases" because unless the products in your shop are all out of stock you likely won't need to use a throttling mechanism in the way shown above to delete out of stock products. Nevertheless, there will be situations where it becomes critical to 'pause and resume' your program. Say you want to edit the price of all the products in your shop.
+Let's use a real-world example (in this case, deleting products that are out of stock) to demonstrate how to make your program pause and resume.
