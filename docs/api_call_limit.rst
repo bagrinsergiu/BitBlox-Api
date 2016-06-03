@@ -14,7 +14,7 @@ This article will show you how to tell your program to take small pauses to keep
 
 **How to avoid the 429 error**
 Some things to remember:
-- You can check how many calls you've already made using the BitBlox header that was sent in response to your API call: HTTP_X_SHOPIFY_SHOP_API_CALL_LIMIT (lists how many calls you've made for that particular shop)
+- You can check how many calls you've already made using the BitBlox header that was sent in response to your API call: CALL_LIMIT (lists how many calls you've made for that particular shop)
 
 Keep in mind that X will decrease over time. If you see you're at 39/40 calls, and wait 10 seconds, you'll be down to 19/40 calls.
 

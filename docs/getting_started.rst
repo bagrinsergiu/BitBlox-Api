@@ -14,6 +14,8 @@ Shopify's API implements JSON to manipulate each API resource in isolation, prov
 
 Any Shopify app that you create will use the Shopify API to access another shop's data and automate almost any action from their shop admin dashboard. When a shop installs your app, all they're really doing is giving your app permission to access their shop's data through the API.
 
+|
+|
 
 Creating Remote Editor
 ======================
