@@ -25,9 +25,6 @@ For creating access token: ``GET http://bodnar.info/oauth/v2/token?`` with the f
 	- ``grant_type (required)``: Grant Type represents the flow needed for the Client to obtain Access Token.
 	- ``username (required)``: Client username.
 	- ``password (required)``: Client password.
-	
-|
-|
 
 .. 	note::
 	The access token is temporary, and can only be used for one hour after it has been generated.
@@ -35,8 +32,8 @@ For creating access token: ``GET http://bodnar.info/oauth/v2/token?`` with the f
 |
 |
 
-Step 2: Example Implementations the Step 1
-==========================================
+Step 2: Example Implementations
+===============================
 
 	**PHP**
 
@@ -87,17 +84,14 @@ with the following parameters:
 	- ``client_secret (required)``: The new Shared Secret for your app
 	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard
 
-|
-|
-
 .. 	note::
 	The refresh token is temporary, and can only be used for one hour after it has been generated.
 
 |
 |
 
-Step 4: Example Implementations the Step 3
-==========================================
+Step 4: Example Implementations
+===============================
 
 	**PHP**
 
