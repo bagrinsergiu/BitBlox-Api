@@ -18,7 +18,7 @@ Access to the API is available to everyone with a BitBlox Developer account. Onc
 Step 1: Request access token
 ============================
 
-For creating access token: ``GET http://bodnar.info/oauth/v2/token?`` with the following parameters:
+For creating access token: ``GET http://bitblox.site/oauth/v2/token?`` with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The Secret Key for your app
@@ -55,7 +55,7 @@ Step 2: Example Implementations
 
 		  $query_string = http_build_query($data);
 
-		  $url = 'http://bodnar.info/oauth/v2/token?'.$query_string;
+		  $url = 'http://bitblox.site/oauth/v2/token?'.$query_string;
 
 		  $handler = curl_init();
 
@@ -112,7 +112,7 @@ Step 4: Example Implementations
 
 		  $query_string = http_build_query($data);
 
-		  $url = 'http://bodnar.info/oauth/v2/token?'.$query_string;
+		  $url = 'http://bitblox.site/oauth/v2/token?'.$query_string;
 
 		  $handler = curl_init();
 

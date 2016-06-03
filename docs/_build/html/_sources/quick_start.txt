@@ -29,6 +29,12 @@ To start developing your remote editor, you need to become a BitBlox Developer b
 |
 |
 
+DNS Settings
+============
+
+``* CNAME bitblox.site``
+
+
 Pricing
 =======
 About Pricing
