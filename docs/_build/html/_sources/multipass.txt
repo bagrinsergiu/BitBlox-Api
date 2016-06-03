@@ -7,7 +7,7 @@ Let's say you are the owner of a successful website forum. All of your users mus
 Multipass login is for store owners who have a separate website and a Shopify store. It redirects users from the website to the Shopify store and seamlessly logs them in with the same email address they used to sign up for the original website. If no account with that email address exists yet, one is created. There is no need to synchronize any customer databases.
 
 .. note::
-	The Multipass login feature is **only** available for Remote Editor `users <http://docs.testblox.info/en/latest/api_reference.html#user>`_.
+	The Multipass login feature is **only** available for Remote Editor `users <http://explorer.bodnar.info/doc/api#get--api-users.{_format}>`_.
 
 |
 |

@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/api_reference.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/balance.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/pricing.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/re_applications.rst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/re_themes.rst" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/multipass.rst" afterPath="$PROJECT_DIR$/docs/multipass.rst" />
     </list>
     <ignored path="test_docs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,10 +30,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/index.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21975583">
+            <state vertical-scroll-proportion="-6.827586">
               <caret line="11" column="18" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
               <folding />
             </state>
@@ -55,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multipass.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="multipass.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/multipass.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.2516129">
+              <caret line="9" column="140" selection-start-line="9" selection-start-column="140" selection-end-line="9" selection-end-column="140" />
               <folding />
             </state>
           </provider>
@@ -104,10 +99,10 @@
         <option value="$PROJECT_DIR$/docs/re_applications.rst" />
         <option value="$PROJECT_DIR$/docs/re_themes.rst" />
         <option value="$PROJECT_DIR$/docs/api_call_limit.rst" />
-        <option value="$PROJECT_DIR$/docs/multipass.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/getting_started.rst" />
         <option value="$PROJECT_DIR$/docs/api_reference.rst" />
+        <option value="$PROJECT_DIR$/docs/multipass.rst" />
       </list>
     </option>
   </component>
@@ -607,10 +602,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
+    <entry file="file://$PROJECT_DIR$/docs/index.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.827586">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -623,18 +618,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/multipass.rst">
+    <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/index.rst">
+    <entry file="file://$PROJECT_DIR$/docs/multipass.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21975583">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.2516129">
+          <caret line="9" column="140" selection-start-line="9" selection-start-column="140" selection-end-line="9" selection-end-column="140" />
           <folding />
         </state>
       </provider>
