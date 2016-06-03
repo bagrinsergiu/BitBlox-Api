@@ -51,50 +51,78 @@
             
   <div class="section" id="authentication">
 <h1>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="api-keys">
-<h2>API Keys<a class="headerlink" href="#api-keys" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://bodnar.info/developer/editors">remote editor management page</a> to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</div></blockquote>
+<p>Your app cannot read BitBlox data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 specification</a>).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="section" id="api-credential-rotation">
+<h2>API Credential Rotation<a class="headerlink" href="#api-credential-rotation" title="Permalink to this headline">¶</a></h2>
+<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://bodnar.info/developer/editors">remote editor management page</a> to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="creating-token-example">
-<h2>Creating Token Example<a class="headerlink" href="#creating-token-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-1-request-access-token">
+<h2>Step 1: Request access token<a class="headerlink" href="#step-1-request-access-token" title="Permalink to this headline">¶</a></h2>
+<p>For creating access token: <tt class="docutils literal"><span class="pre">GET</span> <span class="pre">http://bodnar.info/oauth/v2/token?</span></tt> with the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Secret Key for your app</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Grant Type represents the flow needed for the Client to obtain Access Token.</li>
+<li><tt class="docutils literal"><span class="pre">username</span> <span class="pre">(required)</span></tt>: Client username.</li>
+<li><tt class="docutils literal"><span class="pre">password</span> <span class="pre">(required)</span></tt>: Client password.</li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The access token is temporary, and can only be used for one hour after it has been generated.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="step-2-example-implementations-the-step-1">
+<h2>Step 2: Example Implementations the Step 1<a class="headerlink" href="#step-2-example-implementations-the-step-1" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p><strong>PHP</strong></p>
-<div class="highlight-php"><div class="highlight"><pre><span class="x">      </span><span class="cp">&lt;?php</span>
-        <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
-        <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
-        <span class="nv">$username</span>      <span class="o">=</span> <span class="s2">&quot;{USERNAME}&quot;</span><span class="p">;</span>
-        <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{PASSWORD}&quot;</span>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
+  <span class="nv">$username</span>      <span class="o">=</span> <span class="s2">&quot;{USERNAME}&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{PASSWORD}&quot;</span>
 
-        <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
-              <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
-              <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
-              <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
-              <span class="s1">&#39;username&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
-              <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
-        <span class="p">];</span>
+  <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+        <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
+        <span class="s1">&#39;username&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
+  <span class="p">];</span>
 
-        <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-        <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bodnar.info/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
 
-        <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-        <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
 
-        <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+  <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
 
-<span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
-        <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
-
-      <span class="cp">?&gt;</span><span class="x"></span>
+<span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -103,8 +131,8 @@
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="request-new-access-tokens">
-<h2>Request new access tokens<a class="headerlink" href="#request-new-access-tokens" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-3-request-new-access-tokens">
+<h2>Step 3: Request new access tokens<a class="headerlink" href="#step-3-request-new-access-tokens" title="Permalink to this headline">¶</a></h2>
 <p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
 GET <a class="reference external" href="https://bodnar.info/oauth/v2/token">https://bodnar.info/oauth/v2/token</a>?
 with the following parameters:</p>
@@ -115,13 +143,21 @@ with the following parameters:</p>
 <li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard</li>
 </ul>
 </div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The refresh token is temporary, and can only be used for one hour after it has been generated.</p>
 </div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
 </div>
-<div class="section" id="example-implementations">
-<h2>Example Implementations<a class="headerlink" href="#example-implementations" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="step-4-example-implementations-the-step-3">
+<h2>Step 4: Example Implementations the Step 3<a class="headerlink" href="#step-4-example-implementations-the-step-3" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><p><strong>PHP</strong></p>
 <div class="highlight-php"><div class="highlight"><pre><span class="x">      </span><span class="cp">&lt;?php</span>
@@ -168,10 +204,11 @@ with the following parameters:</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Authentication</a><ul>
-<li><a class="reference internal" href="#api-keys">API Keys</a></li>
-<li><a class="reference internal" href="#creating-token-example">Creating Token Example</a></li>
-<li><a class="reference internal" href="#request-new-access-tokens">Request new access tokens</a></li>
-<li><a class="reference internal" href="#example-implementations">Example Implementations</a></li>
+<li><a class="reference internal" href="#api-credential-rotation">API Credential Rotation</a></li>
+<li><a class="reference internal" href="#step-1-request-access-token">Step 1: Request access token</a></li>
+<li><a class="reference internal" href="#step-2-example-implementations-the-step-1">Step 2: Example Implementations the Step 1</a></li>
+<li><a class="reference internal" href="#step-3-request-new-access-tokens">Step 3: Request new access tokens</a></li>
+<li><a class="reference internal" href="#step-4-example-implementations-the-step-3">Step 4: Example Implementations the Step 3</a></li>
 </ul>
 </li>
 </ul>
