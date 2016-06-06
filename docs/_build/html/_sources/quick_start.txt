@@ -37,7 +37,7 @@ Step 2: Manage DNS Settings
 +------------+------------+---------------+
 | Type       | Name       | Value         |
 +============+============+===============+
-| CName      |   *        | bitblox.site  |
+| CName      |   ``*``     | bitblox.site  |
 +------------+------------+---------------+
 
 Step 3: Themes
