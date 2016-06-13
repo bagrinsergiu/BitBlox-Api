@@ -38,16 +38,16 @@ Step 2: Manage DNS Settings
 
 Step 3: Themes
 ==============
-You can manage default themes or create your own themes for each remote editor.
+You can manage default themes or create your own themes for each Remote Editor.
 
 To manage Default Themes:
 
-1. Click Manage Themes in the Actions for Remote Editor
-2. Click Enable/Disable in the Actions for Theme
+1. Click Manage Themes for selected Remote Editor
+2. Click Enable/Disable for selected Theme
 
 To create your own Themes:
 
-1. Click Manage Themes in the Actions for Remote Editor
+1. Click Manage Themes for selected Remote Editor
 2. Click Add New Theme
 3. Choose Template and click create
 
@@ -56,7 +56,12 @@ To create your own Themes:
 
 Step 4: Applications
 ====================
-About Applications
+You can manage default applications or create your own applications for each Remote Editor.
+
+To manage Default Applications:
+
+1. Click Manage Applications for selected Remote Editor
+2. Click Enable/Disable for selected Application
 
 |
 |

@@ -42,12 +42,12 @@ You can manage default themes or create your own themes for each Remote Editor.
 
 To manage Default Themes:
 
-1. Click Manage Themes in the Actions section for selected Remote Editor
-2. Click Enable/Disable in the Actions section for selected Theme
+1. Click Manage Themes for selected Remote Editor
+2. Click Enable/Disable for selected Theme
 
 To create your own Themes:
 
-1. Click Manage Themes in the Actions section for selected Remote Editor
+1. Click Manage Themes for selected Remote Editor
 2. Click Add New Theme
 3. Choose Template and click create
 
@@ -60,8 +60,8 @@ You can manage default applications or create your own applications for each Rem
 
 To manage Default Applications:
 
-1. Click Manage Applications in the Actions section for selected Remote Editor
-2. Click Enable/Disable in the Actions section for selected Application
+1. Click Manage Applications for selected Remote Editor
+2. Click Enable/Disable for selected Application
 
 |
 |
