@@ -77,7 +77,7 @@ Step 3: Request new access tokens
 =================================
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-GET http://api.bitblox.me/oauth/v2/token?
+``GET http://api.bitblox.me/oauth/v2/token?``
 with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
