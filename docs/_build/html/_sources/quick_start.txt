@@ -38,17 +38,18 @@ Step 2: Manage DNS Settings
 
 Step 3: Themes
 ==============
-You can manage default demos or create your own demos for each remote editor
+You can manage default themes or create your own themes for each remote editor.
 
-To manage Default Demos:
+To manage Default Themes:
 
-1. Click Manage Demos in the Actions for Remote Editor
-2. Click Enable/Disable in the Actions for Demo
+1. Click Manage Themes in the Actions for Remote Editor
+2. Click Enable/Disable in the Actions for Theme
 
-To create your own demo:
+To create your own Themes:
 
-1. Click Manage Demos in the Actions for Remote Editor
-2. Click Add New Demo
+1. Click Manage Themes in the Actions for Remote Editor
+2. Click Add New Theme
+3. Choose Template and click create
 
 |
 |
