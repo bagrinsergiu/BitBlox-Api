@@ -63,6 +63,15 @@ To manage Default Applications:
 1. Click Manage Applications for selected Remote Editor
 2. Click Enable/Disable for selected Application
 
+To create your own Applications:
+
+1. Click Manage Applications for selected Remote Editor
+2. Click Add New Application
+
+.. note::
+    Roles let you specify exactly what type of access you need.
+
+
 |
 |
 
