@@ -78,17 +78,13 @@ To create your own Applications:
 Balance
 =======
 
+Payment for projects will be withdrawal from your current balance. The balance can be `recharged here <http://www.bitblox.me/developer/balance>`_.
+
 .. note::
-    Follow your balance. If your credit is more than 100$ all your projects will be unavailable.
+    Check your balance. If your credit is more than 100$ all your projects will be unavailable.
 
 |
 |
 
-Pricing
-=======
-About Pricing
-
-|
-|
 
 
