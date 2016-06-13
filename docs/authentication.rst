@@ -10,7 +10,7 @@ Your app cannot read BitBlox data without authenticating first. It must get perm
 API Credential Rotation
 =======================
 
-Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://bodnar.info/developer/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/developer/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 |
 |
@@ -18,7 +18,7 @@ Access to the API is available to everyone with a BitBlox Developer account. Onc
 Step 1: Request access token
 ============================
 
-For creating access token: ``GET http://bitblox.site/oauth/v2/token?`` with the following parameters:
+For creating access token: ``GET http://api.bitblox.me/oauth/v2/token?`` with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The Secret Key for your app
@@ -55,7 +55,7 @@ Step 2: Example Implementations
 
 		  $query_string = http_build_query($data);
 
-		  $url = 'http://bitblox.site/oauth/v2/token?'.$query_string;
+		  $url = 'http://api.bitblox.me/oauth/v2/token?'.$query_string;
 
 		  $handler = curl_init();
 
@@ -77,7 +77,7 @@ Step 3: Request new access tokens
 =================================
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-GET https://bodnar.info/oauth/v2/token?
+GET http://api.bitblox.me/oauth/v2/token?
 with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
@@ -112,7 +112,7 @@ Step 4: Example Implementations
 
 		  $query_string = http_build_query($data);
 
-		  $url = 'http://bitblox.site/oauth/v2/token?'.$query_string;
+		  $url = 'http://api.bitblox.me/oauth/v2/token?'.$query_string;
 
 		  $handler = curl_init();
 

@@ -58,7 +58,7 @@
 </div>
 <div class="section" id="api-credential-rotation">
 <h2>API Credential Rotation<a class="headerlink" href="#api-credential-rotation" title="Permalink to this headline">¶</a></h2>
-<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://bodnar.info/developer/editors">remote editor management page</a> to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
+<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/developer/editors">remote editor management page</a> to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -66,7 +66,7 @@
 </div>
 <div class="section" id="step-1-request-access-token">
 <h2>Step 1: Request access token<a class="headerlink" href="#step-1-request-access-token" title="Permalink to this headline">¶</a></h2>
-<p>For creating access token: <tt class="docutils literal"><span class="pre">GET</span> <span class="pre">http://bitblox.site/oauth/v2/token?</span></tt> with the following parameters:</p>
+<p>For creating access token: <tt class="docutils literal"><span class="pre">GET</span> <span class="pre">http://api.bitblox.me/oauth/v2/token?</span></tt> with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
@@ -105,7 +105,7 @@
 
   <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bitblox.site/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
 
   <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
@@ -130,7 +130,7 @@
 <div class="section" id="step-3-request-new-access-tokens">
 <h2>Step 3: Request new access tokens<a class="headerlink" href="#step-3-request-new-access-tokens" title="Permalink to this headline">¶</a></h2>
 <p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-GET <a class="reference external" href="https://bodnar.info/oauth/v2/token">https://bodnar.info/oauth/v2/token</a>?
+GET <a class="reference external" href="http://api.bitblox.me/oauth/v2/token">http://api.bitblox.me/oauth/v2/token</a>?
 with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
@@ -167,7 +167,7 @@ with the following parameters:</p>
 
   <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
 
-  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://bitblox.site/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
 
   <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 

@@ -11,4 +11,4 @@ Welcome to BitBlox documentation.
 	authentication
 	api_call_limit
 	multipass
-	API Reference <http://explorer.bodnar.info/doc/api>
+	API Reference <http://api.bitblox.me/explorer>
