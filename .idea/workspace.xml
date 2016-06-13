@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" afterPath="$PROJECT_DIR$/docs/_build/doctrees/environment.pickle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/authentication.rst" afterPath="$PROJECT_DIR$/docs/authentication.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/index.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/index.doctree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/index.html" afterPath="$PROJECT_DIR$/docs/_build/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/index.rst" afterPath="$PROJECT_DIR$/docs/index.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/index.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/index.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/quick_start.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/quick_start.doctree" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/quick_start.html" afterPath="$PROJECT_DIR$/docs/_build/html/quick_start.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/quick_start.rst" afterPath="$PROJECT_DIR$/docs/quick_start.rst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/quick_start.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/quick_start.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/doctrees/api_call_limit.doctree" afterPath="$PROJECT_DIR$/docs/_build/doctrees/api_call_limit.doctree" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/api_call_limit.html" afterPath="$PROJECT_DIR$/docs/_build/html/api_call_limit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/api_call_limit.rst" afterPath="$PROJECT_DIR$/docs/api_call_limit.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/_sources/api_call_limit.txt" afterPath="$PROJECT_DIR$/docs/_build/html/_sources/api_call_limit.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/_build/html/searchindex.js" afterPath="$PROJECT_DIR$/docs/_build/html/searchindex.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -71,20 +66,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_call_limit.rst" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api_call_limit.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/api_call_limit.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.63870966">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="authentication.rst" pinned="false" current-in-tab="true">
+      <file leaf-file-name="authentication.rst" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58064514">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
@@ -111,11 +106,11 @@
         <option value="$PROJECT_DIR$/docs/getting_started.rst" />
         <option value="$PROJECT_DIR$/docs/api_reference.rst" />
         <option value="$PROJECT_DIR$/docs/multipass.rst" />
-        <option value="$PROJECT_DIR$/docs/api_call_limit.rst" />
         <option value="$PROJECT_DIR$/docs/errors.rst" />
         <option value="$PROJECT_DIR$/docs/quick_start.rst" />
         <option value="$PROJECT_DIR$/docs/index.rst" />
         <option value="$PROJECT_DIR$/docs/authentication.rst" />
+        <option value="$PROJECT_DIR$/docs/api_call_limit.rst" />
       </list>
     </option>
   </component>
@@ -651,14 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/api_call_limit.rst">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/quick_start.rst">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -677,7 +664,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58064514">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/api_call_limit.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63870966">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>

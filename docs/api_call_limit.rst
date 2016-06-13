@@ -24,7 +24,7 @@ How to avoid the 429 error
 
 Some things to remember:
 
-You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
+1. You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
 
 - ``X-RateLimit-Limit:7200``
 - ``X-RateLimit-Remaining:7199``
@@ -32,4 +32,4 @@ You can check how many calls you've already made using the BitBlox header that w
 
 Keep in mind that X will decrease over time. If you see you're at 39/40 calls, and wait 10 seconds, you'll be down to 19/40 calls.
 
-Let's use a real-world example (in this case, deleting products that are out of stock) to demonstrate how to make your program pause and resume.
+2. You can only update one page or project with one API call.

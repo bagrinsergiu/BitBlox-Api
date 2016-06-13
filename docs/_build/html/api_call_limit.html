@@ -69,14 +69,18 @@
 <div class="section" id="how-to-avoid-the-429-error">
 <h2>How to avoid the 429 error<a class="headerlink" href="#how-to-avoid-the-429-error" title="Permalink to this headline">¶</a></h2>
 <p>Some things to remember:</p>
-<p>You can check how many calls you&#8217;ve already made using the BitBlox header that was sent in response to your API call:</p>
+<ol class="arabic simple">
+<li>You can check how many calls you&#8217;ve already made using the BitBlox header that was sent in response to your API call:</li>
+</ol>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">X-RateLimit-Limit:7200</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">X-RateLimit-Remaining:7199</span></tt></li>
 <li><tt class="docutils literal"><span class="pre">X-RateLimit-Reset:1464952507</span></tt></li>
 </ul>
 <p>Keep in mind that X will decrease over time. If you see you&#8217;re at 39/40 calls, and wait 10 seconds, you&#8217;ll be down to 19/40 calls.</p>
-<p>Let&#8217;s use a real-world example (in this case, deleting products that are out of stock) to demonstrate how to make your program pause and resume.</p>
+<ol class="arabic simple" start="2">
+<li>You can only update one page or project with one API call.</li>
+</ol>
 </div>
 </div>
 
