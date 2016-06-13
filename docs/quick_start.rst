@@ -8,7 +8,7 @@ Welcome to BitBlox's API documentation.
 
 About Remote Editor
 ===================
-What is Remote Editor? Need text about remote editor.
+What is Remote Editor?
 
 |
 |
@@ -77,7 +77,9 @@ To create your own Applications:
 
 Balance
 =======
-About Balance
+
+.. note::
+    If your credit more than 100$ all projects will be unavailable
 
 |
 |

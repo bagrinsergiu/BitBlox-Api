@@ -20,8 +20,8 @@ The user information is represented as a hash which must contain at least the em
 .. code-block:: javascript
 
 	{
-  		email: "bob@shopify.com",
-  		created_at: "2013-04-11T15:16:23-04:00",
+  		email: "bob@bitblox.me",
+  		created_at: "2016-06-13T15:16:23-04:00",
   		return_to: "redirect_url"
 	}
 
