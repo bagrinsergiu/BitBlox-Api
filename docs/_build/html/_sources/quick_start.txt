@@ -79,7 +79,7 @@ Balance
 =======
 
 .. note::
-    If your credit more than 100$ all projects will be unavailable
+    Follow your balance. If your credit is more than 100$ all your projects will be unavailable.
 
 |
 |
