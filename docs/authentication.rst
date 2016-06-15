@@ -121,7 +121,7 @@ Step 4: Example Implementations
 		  $data = [
 		    'client_id'     => $client_id,
 		    'client_secret' => $client_secret,
-		    'grant_type'    => GRANT_TYPE_PASSWORD,
+		    'grant_type'    => GRANT_TYPE_REFRESH_TOKEN,
 		    'refresh_token' => $refresh_token
 		  ];
 
