@@ -49,11 +49,11 @@ Step 2: Example Implementations
 		  $password      = "{DEVELOPER_PASSWORD}";
 
 		  $data = [
-				'client_id'     => $client_id,
-				'client_secret' => $client_secret,
-				'grant_type'    => GRANT_TYPE_PASSWORD,
-				'email'         => $email,
-				'password'      => $password
+            'client_id'     => $client_id,
+            'client_secret' => $client_secret,
+            'grant_type'    => GRANT_TYPE_PASSWORD,
+            'email'         => $email,
+            'password'      => $password
 		  ];
 
 		  $url = 'http://api.bitblox.me/oauth/v2/token';
@@ -76,8 +76,8 @@ Step 2: Example Implementations
 		  $refresh_token = "";
 
 		  if($response && $info['http_code'] == 200) {
-			  $access_token  = $response->access_token;
-			  $refresh_token = $response->refresh_token;
+		    $access_token  = $response->access_token;
+            $refresh_token = $response->refresh_token;
 		  }
 
 		?>
@@ -89,7 +89,7 @@ Step 3: Request new access tokens
 =================================
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-``GET http://api.bitblox.me/oauth/v2/token?``
+``POST http://api.bitblox.me/oauth/v2/token``
 with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
@@ -111,31 +111,43 @@ Step 4: Example Implementations
 	.. code-block:: php
 
 		<?php
+
+		  define('GRANT_TYPE_REFRESH_TOKEN', 'refresh_token');
+
 		  $client_id     = "{CLIENT_ID}";
 		  $client_secret = "{CLIENT_SECRET}";
 		  $refresh_token = "{REFRESH_TOKEN}";
 
 		  $data = [
-		  	'client_id'     => $client_id,
-		  	'client_secret' => $client_secret,
-			'grant_type'    => "refresh_token",
-			'refresh_token' => $refresh_token,
+		    'client_id'     => $client_id,
+		    'client_secret' => $client_secret,
+            'grant_type'    => GRANT_TYPE_PASSWORD,
+            'refresh_token' => $refresh_token
 		  ];
 
-		  $query_string = http_build_query($data);
+		  $url = 'http://api.bodnar.info/oauth/v2/token';
 
-		  $url = 'http://api.bitblox.me/oauth/v2/token?'.$query_string;
+		  $curl_handler = curl_init();
 
-		  $handler = curl_init();
+		  curl_setopt($curl_handler, CURLOPT_URL, $url);
+		  curl_setopt($curl_handler, CURLOPT_RETURNTRANSFER, true);
+		  curl_setopt($curl_handler, CURLOPT_POST, true);
+		  curl_setopt($curl_handler, CURLOPT_POSTFIELDS, $data);
 
-		  curl_setopt($handler, CURLOPT_URL, $url);
-		  curl_setopt($handler, CURLOPT_RETURNTRANSFER, 1);
+		  $response = curl_exec($curl_handler);
+		  $info     = curl_getinfo($curl_handler);
 
-		  $response = curl_exec($handler);
+		  curl_close($curl_handler);
 
 		  $response = json_decode($response);
 
-		  $access_token  = $response->access_token;
-		  $refresh_token = $response->refresh_token;
+		  $access_token  = "";
+		  $refresh_token = "";
 
+		  if($response && $info['http_code'] == 200) {
+            $access_token  = $response->access_token;
+            $refresh_token = $response->refresh_token;
+		  }
+
+		  echo $access_token; echo "\n"; echo $refresh_token;
 		?>
