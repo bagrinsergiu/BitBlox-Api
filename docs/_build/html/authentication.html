@@ -66,7 +66,7 @@
 </div>
 <div class="section" id="step-1-request-access-token">
 <h2>Step 1: Request access token<a class="headerlink" href="#step-1-request-access-token" title="Permalink to this headline">¶</a></h2>
-<p>For creating access token: <tt class="docutils literal"><span class="pre">GET</span> <span class="pre">http://api.bitblox.me/oauth/v2/token?</span></tt> with the following parameters:</p>
+<p>For creating access token: <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/v2/token</span></tt> with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
@@ -90,33 +90,45 @@
 <blockquote>
 <div><p><strong>PHP</strong></p>
 <div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+  <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;GRANT_TYPE_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
   <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
   <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
-  <span class="nv">$username</span>      <span class="o">=</span> <span class="s2">&quot;{USERNAME}&quot;</span><span class="p">;</span>
-  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{PASSWORD}&quot;</span>
+  <span class="nv">$email</span>         <span class="o">=</span> <span class="s2">&quot;{DEVELOPER_EMAIL}&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{DEVELOPER_PASSWORD}&quot;</span><span class="p">;</span>
 
   <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
-        <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
-        <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s2">&quot;password&quot;</span><span class="p">,</span>
-        <span class="s1">&#39;username&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$username</span><span class="p">,</span>
-        <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
+                <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+                <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+                <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nx">GRANT_TYPE_PASSWORD</span><span class="p">,</span>
+                <span class="s1">&#39;email&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$email</span><span class="p">,</span>
+                <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
   <span class="p">];</span>
 
-  <span class="nv">$query_string</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token&#39;</span><span class="p">;</span>
 
-  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token?&#39;</span><span class="o">.</span><span class="nv">$query_string</span><span class="p">;</span>
+  <span class="nv">$curl_handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-  <span class="nv">$handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
 
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
-  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+  <span class="nv">$info</span>     <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
 
-  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$handler</span><span class="p">);</span>
+  <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+
   <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
 
-  <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
-  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="nv">$access_token</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+          <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="p">}</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
 </pre></div>
