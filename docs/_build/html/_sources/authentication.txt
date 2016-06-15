@@ -151,8 +151,8 @@ Step 4: Example Implementations
 
 		?>
 
-What Happens When the Token Expires
-===================================
+When the Token Expires
+======================
 When the token expires, your next API call will fail with the following result:
 
 	.. code-block:: json
