@@ -161,3 +161,5 @@ When the token expires, your next API call will fail with the following result:
 		  "error":"invalid_grant",
 		  "error_description":"The access token provided has expired."
 		}
+
+You’ll need to either refresh your token or create a new one. Our OAuth tokens expire in 3600 seconds (an hour).
