@@ -23,7 +23,7 @@ For creating access token: ``POST http://api.bitblox.me/oauth/v2/token`` with th
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The Secret Key for your app
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
-	- ``username (required)``: Client username.
+	- ``email (required)``: Client email.
 	- ``password (required)``: Client password.
 
 .. 	note::

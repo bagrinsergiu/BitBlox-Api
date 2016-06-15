@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7e632aa9-abd5-426d-ace2-a56c5f9738fa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/authentication.rst" afterPath="$PROJECT_DIR$/docs/authentication.rst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="test_docs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,8 +84,8 @@
       <file leaf-file-name="authentication.rst" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68035513">
-              <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.58046615">
+              <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -676,8 +677,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/authentication.rst">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68035513">
-          <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.58046615">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
           <folding />
         </state>
       </provider>
