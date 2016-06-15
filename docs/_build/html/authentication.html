@@ -103,7 +103,7 @@
     <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
     <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nx">GRANT_TYPE_PASSWORD</span><span class="p">,</span>
     <span class="s1">&#39;email&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$email</span><span class="p">,</span>
-<span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
+    <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
   <span class="p">];</span>
 
   <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token&#39;</span><span class="p">;</span>
@@ -125,9 +125,9 @@
   <span class="nv">$access_token</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
   <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
 
-  <span class="k">if</span><span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
-    <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+     <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
   <span class="p">}</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>
@@ -199,9 +199,9 @@ with the following parameters:</p>
   <span class="nv">$access_token</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
   <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
 
-  <span class="k">if</span><span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
-    <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+     <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
   <span class="p">}</span>
 
 <span class="cp">?&gt;</span><span class="x"></span>

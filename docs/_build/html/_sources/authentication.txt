@@ -53,7 +53,7 @@ Step 2: Example Implementations
 		    'client_secret' => $client_secret,
 		    'grant_type'    => GRANT_TYPE_PASSWORD,
 		    'email'         => $email,
-	        'password'      => $password
+		    'password'      => $password
 		  ];
 
 		  $url = 'http://api.bitblox.me/oauth/v2/token';
@@ -75,9 +75,9 @@ Step 2: Example Implementations
 		  $access_token  = "";
 		  $refresh_token = "";
 
-		  if($response && $info['http_code'] == 200) {
-		    $access_token  = $response->access_token;
-		    $refresh_token = $response->refresh_token;
+		  if ($response && $info['http_code'] == 200) {
+		     $access_token  = $response->access_token;
+		     $refresh_token = $response->refresh_token;
 		  }
 
 		?>
@@ -144,9 +144,9 @@ Step 4: Example Implementations
 		  $access_token  = "";
 		  $refresh_token = "";
 
-		  if($response && $info['http_code'] == 200) {
-		    $access_token  = $response->access_token;
-		    $refresh_token = $response->refresh_token;
+		  if ($response && $info['http_code'] == 200) {
+		     $access_token  = $response->access_token;
+		     $refresh_token = $response->refresh_token;
 		  }
 
 		?>
