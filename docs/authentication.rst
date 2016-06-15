@@ -121,8 +121,8 @@ Step 4: Example Implementations
 		  $data = [
 		    'client_id'     => $client_id,
 		    'client_secret' => $client_secret,
-            'grant_type'    => GRANT_TYPE_PASSWORD,
-            'refresh_token' => $refresh_token
+		    'grant_type'    => GRANT_TYPE_PASSWORD,
+		    'refresh_token' => $refresh_token
 		  ];
 
 		  $url = 'http://api.bodnar.info/oauth/v2/token';
@@ -146,8 +146,7 @@ Step 4: Example Implementations
 
 		  if($response && $info['http_code'] == 200) {
             $access_token  = $response->access_token;
-            $refresh_token = $response->refresh_token;
+		    $refresh_token = $response->refresh_token;
 		  }
 
-		  echo $access_token; echo "\n"; echo $refresh_token;
 		?>
