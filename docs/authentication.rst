@@ -125,7 +125,7 @@ Step 4: Example Implementations
 		    'refresh_token' => $refresh_token
 		  ];
 
-		  $url = 'http://api.bodnar.info/oauth/v2/token';
+		  $url = 'http://api.bitblox.me/oauth/v2/token';
 
 		  $curl_handler = curl_init();
 
