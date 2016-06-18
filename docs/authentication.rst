@@ -18,7 +18,7 @@ Access to the API is available to everyone with a BitBlox Developer account. Onc
 Step 1: Request access token
 ============================
 
-For creating access token: ``POST http://api.bitblox.me/oauth/v2/token`` with the following parameters:
+For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
 	- ``client_secret (required)``: The Secret Key for your app
@@ -45,8 +45,8 @@ Step 2: Example Implementations
 
 		  $client_id     = "{CLIENT_ID}";
 		  $client_secret = "{CLIENT_SECRET}";
-		  $email         = "{DEVELOPER_EMAIL}";
-		  $password      = "{DEVELOPER_PASSWORD}";
+		  $email         = "{CLIENT_EMAIL}";
+		  $password      = "{CLIENT_PASSWORD}";
 
 		  $data = [
 		    'client_id'     => $client_id,
@@ -56,7 +56,7 @@ Step 2: Example Implementations
 		    'password'      => $password
 		  ];
 
-		  $url = 'http://api.bitblox.me/oauth/v2/token';
+		  $url = 'http://api.bitblox.me/oauth/token';
 
 		  $curl_handler = curl_init();
 
@@ -89,7 +89,7 @@ Step 3: Request new access tokens
 =================================
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-``POST http://api.bitblox.me/oauth/v2/token``
+``POST http://api.bitblox.me/oauth/token``
 with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
@@ -125,7 +125,7 @@ Step 4: Example Implementations
 		    'refresh_token' => $refresh_token
 		  ];
 
-		  $url = 'http://api.bitblox.me/oauth/v2/token';
+		  $url = 'http://api.bitblox.me/oauth/token';
 
 		  $curl_handler = curl_init();
 

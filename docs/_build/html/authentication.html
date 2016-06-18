@@ -66,7 +66,7 @@
 </div>
 <div class="section" id="step-1-request-access-token">
 <h2>Step 1: Request access token<a class="headerlink" href="#step-1-request-access-token" title="Permalink to this headline">¶</a></h2>
-<p>For creating access token: <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/v2/token</span></tt> with the following parameters:</p>
+<p>For creating access token: <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt> with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
 <li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
@@ -95,8 +95,8 @@
 
   <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
   <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
-  <span class="nv">$email</span>         <span class="o">=</span> <span class="s2">&quot;{DEVELOPER_EMAIL}&quot;</span><span class="p">;</span>
-  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{DEVELOPER_PASSWORD}&quot;</span><span class="p">;</span>
+  <span class="nv">$email</span>         <span class="o">=</span> <span class="s2">&quot;{CLIENT_EMAIL}&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{CLIENT_PASSWORD}&quot;</span><span class="p">;</span>
 
   <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
@@ -106,7 +106,7 @@
     <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
   <span class="p">];</span>
 
-  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token&#39;</span><span class="p">;</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/token&#39;</span><span class="p">;</span>
 
   <span class="nv">$curl_handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
@@ -142,7 +142,7 @@
 <div class="section" id="step-3-request-new-access-tokens">
 <h2>Step 3: Request new access tokens<a class="headerlink" href="#step-3-request-new-access-tokens" title="Permalink to this headline">¶</a></h2>
 <p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
-<tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/v2/token</span></tt>
+<tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt>
 with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
@@ -180,7 +180,7 @@ with the following parameters:</p>
     <span class="s1">&#39;refresh_token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$refresh_token</span>
   <span class="p">];</span>
 
-  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/v2/token&#39;</span><span class="p">;</span>
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/token&#39;</span><span class="p">;</span>
 
   <span class="nv">$curl_handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
