@@ -9,5 +9,5 @@ Welcome to BitBlox Api Documentation.
 
 	what_you_can_build
 	getting_started
-	API Reference <http://api.bitblox.me/explorer>
+	API Explorer <http://api.bitblox.me/explorer>
 	BitBlox Plus Demo <http://remote-editor.online>
