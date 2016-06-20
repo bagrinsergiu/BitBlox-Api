@@ -183,7 +183,7 @@ Your API calls will be processed almost instantly if there is room in your "buck
 |
 
 Are you going over the API limit?
-=================================
+-----------------------
 
 Automated tasks that pause and resume are the best way to stay within the API call limit since you don't need to wait while things get done.
 
@@ -193,7 +193,7 @@ This article will show you how to tell your program to take small pauses to keep
 |
 
 How to avoid the 429 error
-==========================
+---------------------------
 
 Some things to remember:
 
