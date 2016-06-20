@@ -2,7 +2,7 @@ BitBlox
 *******
 
 
-Welcome to BitBlox Api Documentation.
+BitBlox Api
 
 
 .. toctree::
