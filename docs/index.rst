@@ -2,13 +2,12 @@ BitBlox
 *******
 
 
-Welcome to BitBlox documentation.
+Welcome to BitBlox Api Documentation.
 
 
 .. toctree::
 
-	authentication
-	api_call_limit
-	multipass
+	what_you_can_build
+	getting_started
 	API Reference <http://api.bitblox.me/explorer>
 	BitBlox Plus Demo <http://remote-editor.online>
