@@ -200,7 +200,7 @@ nav.stickynav{
 .wy-side-nav-search .version,
 .wy-breadcrumbs-aside,
 .icon-home:before {
-	display:none;
+	display:none!important;
 }
 
 .wy-side-nav-search a,
