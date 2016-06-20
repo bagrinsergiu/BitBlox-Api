@@ -1,10 +1,10 @@
 BitBlox API
 *******
 
+BitBlox Plus contain everything you need to implement features of the Editor inside your own app.
 
 .. toctree::
 
-	what_you_can_build
 	getting_started
 	API Explorer <http://api.bitblox.me/explorer>
 	BitBlox Plus Demo <http://remote-editor.online>
