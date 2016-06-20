@@ -6,14 +6,13 @@ Getting Started
 Api Credentials
 =================
 
-Access to the API is available to everyone with a Partner account. Once you have logged in, visit the `editor management page` <http://www.bitblox.me/developer/editors>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page` <http://www.bitblox.me/developer/editors>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 
 Authentication
 =================
 
-
-Your app cannot read BitBlox data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
+Your Remote Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
 
 |
 |
@@ -21,7 +20,7 @@ Your app cannot read BitBlox data without authenticating first. It must get perm
 API Credential Rotation
 -----------------
 
-Access to the API is available to everyone with a BitBlox Plus account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/developer/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/developer/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 |
 |
