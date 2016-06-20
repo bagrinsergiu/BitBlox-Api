@@ -198,6 +198,7 @@ nav.stickynav{
 
 .rst-versions,
 .rst-pro,
-.wy-side-nav-search .version {
+.wy-side-nav-search .version,
+.wy-breadcrumbs-aside {
 	display:none;
 }
