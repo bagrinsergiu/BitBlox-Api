@@ -264,3 +264,4 @@ texinfo_documents = [
 
 def setup(app):
     app.add_stylesheet('bitblox/static/bitblox.css')
+    app.add_stylesheet('https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700')
