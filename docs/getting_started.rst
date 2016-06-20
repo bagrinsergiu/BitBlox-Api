@@ -4,13 +4,13 @@ Getting Started
 
 
 Api Credentials
----------------------
+=================
 
 Access to the API is available to everyone with a Noun Project account (including users with Playground accounts). Once you have logged in, visit the app management page to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 
 Authentication
------------------
+=================
 
 
 Your app cannot read BitBlox data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
@@ -169,3 +169,40 @@ When the token expires, your next API call will fail with the following result:
 		}
 
 You’ll need to either refresh your token or create a new one. Our OAuth tokens expire in 3600 seconds (an hour).
+
+
+API Call Limit
+==============
+
+
+The API call limit operates using a "leaky bucket" algorithm as a controller. This allows for infrequent bursts of calls, and allows your app to continue to make an unlimited amount of calls over time. The bucket size is 40 calls (which cannot be exceeded at any given time), with a "leak rate" of 2 calls per second that continually empties the bucket. If your app averages 2 calls per second, it will never trip a 429 error ("bucket overflow"). To learn more about the algorithm in general, click here.
+
+Your API calls will be processed almost instantly if there is room in your "bucket". Unlike some integrations of the leaky bucket algorithm that aim to "smooth out" (slow down) operations, you can make quick bursts of API calls that exceed the leak rate. The bucket analogy is still a limit that we are tracking, but your processing speed for API calls is not directly limited to the leak rate of 2 calls per second.
+
+|
+|
+
+Are you going over the API limit?
+=================================
+
+Automated tasks that pause and resume are the best way to stay within the API call limit since you don't need to wait while things get done.
+
+This article will show you how to tell your program to take small pauses to keep your app a few API calls shy of the API call limit and to guard you against a **429 - Too Many Requests error.**
+
+|
+|
+
+How to avoid the 429 error
+==========================
+
+Some things to remember:
+
+1. You can check how many calls you've already made using the BitBlox header that was sent in response to your API call:
+
+- ``X-RateLimit-Limit:7200``
+- ``X-RateLimit-Remaining:7199``
+- ``X-RateLimit-Reset:1464952507``
+
+Keep in mind that X will decrease over time. If you see you're at 39/40 calls, and wait 10 seconds, you'll be down to 19/40 calls.
+
+2. You can only update one page or project with one API call.
