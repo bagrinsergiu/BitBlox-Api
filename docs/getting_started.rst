@@ -266,8 +266,6 @@ The multipass token is only valid within a very short timeframe and each token c
 |
 |
 
-Example implementation
----------------------
 
 	**PHP:**
 
