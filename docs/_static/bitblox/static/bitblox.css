@@ -203,6 +203,7 @@ nav.stickynav{
 	display:none;
 }
 
+.wy-side-nav-search a,
 .wy-side-nav-search a:hover{
 	color:#ffffff;
 }
