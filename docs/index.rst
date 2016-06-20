@@ -1,8 +1,5 @@
-BitBlox
+BitBlox API
 *******
-
-
-BitBlox Api
 
 
 .. toctree::
