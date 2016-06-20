@@ -196,6 +196,7 @@ nav.stickynav{
 
 /* */
 
-.rst-versions{
+.rst-versions,
+.rst-pro {
 	display:none;
 }
