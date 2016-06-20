@@ -1,4 +1,3 @@
-@import url("//fast.fonts.net/t/1.css?apiType=css&projectid=bb6861ed-ece4-4058-a958-dd020ef87198");
 body{
     font-family: "Roman","Helvetica Neue","Helvetica",Arial,sans-serif;
 }
@@ -161,12 +160,6 @@ nav.stickynav{
 nav.stickynav{
     border-right: 1px solid #DADADA;
 }
-
-/* Logo on homepage */
-#noun-project-api img{
-    width: 80px;
-}
-
 
 ::selection{
     background-color: black;
