@@ -7,4 +7,4 @@ BitBlox Plus contain everything you need to implement features of the Editor ins
 
 	getting_started
 	API Explorer <http://api.bitblox.me/explorer>
-	BitBlox Plus Demo <http://remote-editor.online>
+	BitBlox Plus Demo <http://demobitblox.online>
