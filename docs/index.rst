@@ -11,4 +11,4 @@ Welcome to BitBlox documentation.
 	api_call_limit
 	multipass
 	API Reference <http://api.bitblox.me/explorer>
-	BitBlox Platform Demo <http://remote-editor.online>
+	BitBlox Plus Demo <http://remote-editor.online>
