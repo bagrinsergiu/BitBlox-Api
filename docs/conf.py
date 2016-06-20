@@ -263,4 +263,4 @@ texinfo_documents = [
 # todo_include_todos = True
 
 def setup(app):
-    app.add_stylesheet('bitblox/static/noun.css')
+    app.add_stylesheet('bitblox/static/bitblox.css')
