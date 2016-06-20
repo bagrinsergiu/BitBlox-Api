@@ -193,3 +193,9 @@ nav.stickynav{
         font-size: 1em;
     }
 }
+
+/* */
+
+.rst-versions{
+	display:none;
+}
