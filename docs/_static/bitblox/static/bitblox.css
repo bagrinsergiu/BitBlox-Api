@@ -195,11 +195,14 @@ nav.stickynav{
 }
 
 /* */
-
 .rst-versions,
 .rst-pro,
 .wy-side-nav-search .version,
 .wy-breadcrumbs-aside,
 .icon-home:before {
 	display:none;
+}
+
+.wy-side-nav-search a:hover{
+	color:#ffffff;
 }
