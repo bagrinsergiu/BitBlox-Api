@@ -26,7 +26,7 @@ Access to the API is available to everyone with a BitBlox Developer account. Onc
 |
 |
 
-Step 1: Request access token
+Request access token
 -----------------
 
 For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the following parameters:
@@ -42,9 +42,6 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 
 |
 |
-
-Step 2: Example Implementations
------------------
 
 	**PHP**
 
@@ -96,7 +93,7 @@ Step 2: Example Implementations
 |
 |
 
-Step 3: Request new access tokens
+Request new access tokens
 -----------------
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
@@ -113,9 +110,6 @@ with the following parameters:
 
 |
 |
-
-Step 4: Example Implementations
------------------
 
 	**PHP**
 
