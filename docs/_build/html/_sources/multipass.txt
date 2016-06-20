@@ -157,3 +157,14 @@ Example implementation
 			 $token = $multipass->encode($user_data);
 
 	|
+
+Manage DNS Settings
+===================
+1. Log in to your Domain provider dashboard
+2. Set CNAME record
+
++------------+------------+---------------+
+| Type       | Name       | Value         |
++============+============+===============+
+| CName      | ``*``      | bitblox.me    |
++------------+------------+---------------+
