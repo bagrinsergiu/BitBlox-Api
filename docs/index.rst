@@ -1,7 +1,7 @@
 BitBlox API
 *******
 
-BitBlox Plus contain everything you need to implement features of the Editor inside your own app.
+BitBlox Plus contain everything you need to implement features of the Editor inside your own app. 
 
 .. toctree::
 
