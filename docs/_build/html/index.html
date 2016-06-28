@@ -6,10 +6,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>BitBlox &mdash; BitBlox 1.0.0 documentation</title>
+    <title>BitBlox API &mdash; BitBlox 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bitblox/static/bitblox.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -24,7 +25,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="BitBlox 1.0.0 documentation" href="#" />
-    <link rel="next" title="Authentication" href="authentication.html" /> 
+    <link rel="next" title="Getting Started" href="getting_started.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +35,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="authentication.html" title="Authentication"
+          <a href="getting_started.html" title="Getting Started"
              accesskey="N">next</a> |</li>
         <li><a href="#">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
@@ -45,32 +46,33 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="bitblox">
-<h1>BitBlox<a class="headerlink" href="#bitblox" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to BitBlox documentation.</p>
+  <div class="section" id="bitblox-api">
+<h1>BitBlox API<a class="headerlink" href="#bitblox-api" title="Permalink to this headline">¶</a></h1>
+<p>BitBlox Plus contain everything you need to implement features of the Editor inside your own app.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="authentication.html">Authentication</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#api-credential-rotation">API Credential Rotation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#step-1-request-access-token">Step 1: Request access token</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#step-2-example-implementations">Step 2: Example Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#step-3-request-new-access-tokens">Step 3: Request new access tokens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#step-4-example-implementations">Step 4: Example Implementations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="authentication.html#when-the-token-expires">When the Token Expires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#api-credentials">API Credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#authentication">Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#request-access-token">Request access token</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#request-new-access-tokens">Request new access tokens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#when-the-token-expires">When the Token Expires</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="api_call_limit.html">API Call Limit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api_call_limit.html#are-you-going-over-the-api-limit">Are you going over the API limit?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_call_limit.html#how-to-avoid-the-429-error">How to avoid the 429 error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#api-call-limit">API Call Limit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#are-you-going-over-the-api-limit">Are you going over the API limit?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#how-to-avoid-the-429-error">How to avoid the 429 error</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="multipass.html">Multipass</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="multipass.html#implementation">Implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multipass.html#example-implementation">Example implementation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multipass.html#manage-dns-settings">Manage DNS Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#multipass">Multipass</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#implementation">Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#manage-dns-settings">Manage DNS Settings</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="http://api.bitblox.me/explorer">API Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="http://api.bitblox.me/explorer">API Explorer</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://demobitblox.online">BitBlox Plus Demo</a></li>
 </ul>
 </div>
 </div>
@@ -82,8 +84,8 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Next topic</h4>
-  <p class="topless"><a href="authentication.html"
-                        title="next chapter">Authentication</a></p>
+  <p class="topless"><a href="getting_started.html"
+                        title="next chapter">Getting Started</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -113,7 +115,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="authentication.html" title="Authentication"
+          <a href="getting_started.html" title="Getting Started"
              >next</a> |</li>
         <li><a href="#">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>

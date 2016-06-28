@@ -6,10 +6,11 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Quick Start &mdash; BitBlox 1.0.0 documentation</title>
+    <title>Getting Started &mdash; BitBlox 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bitblox/static/bitblox.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -24,8 +25,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="BitBlox 1.0.0 documentation" href="index.html" />
-    <link rel="next" title="Authentication" href="authentication.html" />
-    <link rel="prev" title="BitBlox" href="index.html" /> 
+    <link rel="prev" title="BitBlox API" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -35,10 +35,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="authentication.html" title="Authentication"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="BitBlox"
+          <a href="index.html" title="BitBlox API"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
@@ -49,66 +46,375 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
-<p>Welcome to BitBlox&#8217;s API documentation.</p>
+  <div class="section" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="api-credentials">
+<h2>API Credentials<a class="headerlink" href="#api-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/plus/editors">remote editor management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>Your Remote Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 specification</a>).</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
-<div class="section" id="about-remote-editor">
-<h2>About Remote Editor<a class="headerlink" href="#about-remote-editor" title="Permalink to this headline">¶</a></h2>
-<p>Text About Remote Editor...</p>
-<p>Shopify&#8217;s API implements JSON to manipulate each API resource in isolation, providing a RESTful interface. All API usage happens through Shopify apps created by either store owners for their own shops, or by Shopify Partners for use by store owners.</p>
-<p>Any Shopify app that you create will use the Shopify API to access another shop&#8217;s data and automate almost any action from their shop admin dashboard. When a shop installs your app, all they&#8217;re really doing is giving your app permission to access their shop&#8217;s data through the API.</p>
-<div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-</div>
-<div class="section" id="creating-remote-editor">
-<h2>Creating Remote Editor<a class="headerlink" href="#creating-remote-editor" title="Permalink to this headline">¶</a></h2>
-<p>To start developing your remote editor, you need to become a BitBlox Developer by registering <a class="reference external" href="http://bodnar.info/register/developer">here</a> for your free BitBlox Developer account. As a BitBlox Developer, you gain access to the Developer dashboard where you can create Remote Editor. To create a Remote Editor:</p>
-<ul class="simple">
-<li>Log in to your Developer dashboard</li>
-<li>Click Remote Editor in the sidebar.</li>
-<li>Click Create a new Remote Editor.</li>
+<div class="section" id="request-access-token">
+<h3>Request access token<a class="headerlink" href="#request-access-token" title="Permalink to this headline">¶</a></h3>
+<p>For creating access token: <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt> with the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Secret Key for your app</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token</li>
+<li><tt class="docutils literal"><span class="pre">email</span> <span class="pre">(required)</span></tt>: Client email.</li>
+<li><tt class="docutils literal"><span class="pre">password</span> <span class="pre">(required)</span></tt>: Client password.</li>
 </ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The access token is temporary, and can only be used for one hour after it has been generated.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>PHP</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+  <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;GRANT_TYPE_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
+
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{API_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{SECRET_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$email</span>         <span class="o">=</span> <span class="s2">&quot;{USER_EMAIL}&quot;</span><span class="p">;</span>
+  <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{USER_PASSWORD}&quot;</span><span class="p">;</span>
+
+  <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+    <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+    <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nx">GRANT_TYPE_PASSWORD</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$email</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$password</span>
+  <span class="p">];</span>
+
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/token&#39;</span><span class="p">;</span>
+
+  <span class="nv">$curl_handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+  <span class="nv">$info</span>     <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+
+  <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+
+  <span class="nv">$access_token</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+     <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="pricing">
-<h2>Pricing<a class="headerlink" href="#pricing" title="Permalink to this headline">¶</a></h2>
-<p>About Pricing</p>
+<div class="section" id="request-new-access-tokens">
+<h3>Request new access tokens<a class="headerlink" href="#request-new-access-tokens" title="Permalink to this headline">¶</a></h3>
+<p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
+<tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt>
+with the following parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API key for your app</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The new Secret Key for your app</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token</li>
+<li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard</li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The refresh token is temporary, and can only be used for one hour after it has been generated.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><p><strong>PHP</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+  <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;GRANT_TYPE_REFRESH_TOKEN&#39;</span><span class="p">,</span> <span class="s1">&#39;refresh_token&#39;</span><span class="p">);</span>
+
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{API_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{SECRET_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;{REFRESH_TOKEN}&quot;</span><span class="p">;</span>
+
+  <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$client_id</span><span class="p">,</span>
+    <span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$client_secret</span><span class="p">,</span>
+    <span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="nx">GRANT_TYPE_REFRESH_TOKEN</span><span class="p">,</span>
+    <span class="s1">&#39;refresh_token&#39;</span> <span class="o">=&gt;</span> <span class="nv">$refresh_token</span>
+  <span class="p">];</span>
+
+  <span class="nv">$url</span> <span class="o">=</span> <span class="s1">&#39;http://api.bitblox.me/oauth/token&#39;</span><span class="p">;</span>
+
+  <span class="nv">$curl_handler</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+  <span class="nv">$info</span>     <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+
+  <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl_handler</span><span class="p">);</span>
+
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+
+  <span class="nv">$access_token</span>  <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+  <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$response</span> <span class="o">&amp;&amp;</span> <span class="nv">$info</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+     <span class="nv">$access_token</span>  <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">access_token</span><span class="p">;</span>
+     <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">refresh_token</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="when-the-token-expires">
+<h3>When the Token Expires<a class="headerlink" href="#when-the-token-expires" title="Permalink to this headline">¶</a></h3>
+<p>When the token expires, your next API call will fail with the following result:</p>
+<blockquote>
+<div><div class="highlight-json"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nt">&quot;error&quot;</span><span class="p">:</span><span class="s2">&quot;invalid_grant&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;error_description&quot;</span><span class="p">:</span><span class="s2">&quot;The access token provided has expired.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>You’ll need to either refresh your token or create a new one. Our OAuth tokens expire in 3600 seconds (an hour).</p>
+</div>
+</div>
+<div class="section" id="api-call-limit">
+<h2>API Call Limit<a class="headerlink" href="#api-call-limit" title="Permalink to this headline">¶</a></h2>
+<p>The API call limit operates using a &#8220;leaky bucket&#8221; algorithm as a controller. This allows for infrequent bursts of calls, and allows your app to continue to make an unlimited amount of calls over time. The bucket size is 40 calls (which cannot be exceeded at any given time), with a &#8220;leak rate&#8221; of 2 calls per second that continually empties the bucket. If your app averages 2 calls per second, it will never trip a 429 error (&#8220;bucket overflow&#8221;). To learn more about the algorithm in general, click here.</p>
+<p>Your API calls will be processed almost instantly if there is room in your &#8220;bucket&#8221;. Unlike some integrations of the leaky bucket algorithm that aim to &#8220;smooth out&#8221; (slow down) operations, you can make quick bursts of API calls that exceed the leak rate. The bucket analogy is still a limit that we are tracking, but your processing speed for API calls is not directly limited to the leak rate of 2 calls per second.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<div class="section" id="are-you-going-over-the-api-limit">
+<h3>Are you going over the API limit?<a class="headerlink" href="#are-you-going-over-the-api-limit" title="Permalink to this headline">¶</a></h3>
+<p>Automated tasks that pause and resume are the best way to stay within the API call limit since you don&#8217;t need to wait while things get done.</p>
+<p>This article will show you how to tell your program to take small pauses to keep your app a few API calls shy of the API call limit and to guard you against a <strong>429 - Too Many Requests error.</strong></p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
 </div>
-<div class="section" id="balance">
-<h2>Balance<a class="headerlink" href="#balance" title="Permalink to this headline">¶</a></h2>
-<p>About Balance</p>
+<div class="section" id="how-to-avoid-the-429-error">
+<h3>How to avoid the 429 error<a class="headerlink" href="#how-to-avoid-the-429-error" title="Permalink to this headline">¶</a></h3>
+<p>Some things to remember:</p>
+<ol class="arabic simple">
+<li>You can check how many calls you&#8217;ve already made using the BitBlox header that was sent in response to your API call:</li>
+</ol>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">X-RateLimit-Limit:7200</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">X-RateLimit-Remaining:7199</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">X-RateLimit-Reset:1464952507</span></tt></li>
+</ul>
+<p>Keep in mind that X will decrease over time. If you see you&#8217;re at 39/40 calls, and wait 10 seconds, you&#8217;ll be down to 19/40 calls.</p>
+<ol class="arabic simple" start="2">
+<li>You can only update one page or project with one API call.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="multipass">
+<h2>Multipass<a class="headerlink" href="#multipass" title="Permalink to this headline">¶</a></h2>
+<p>Multipass login is for users which was created through BitBlox API. It redirects users from the your website to the BitBlox Editor.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Multipass login feature is <strong>only</strong> available for BitBlox API <a class="reference external" href="http://api.bitblox.me/explorer#get--api-users.{_format}">users</a>.</p>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
+<div class="section" id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+<p><strong>1. Encode your user information using JSON</strong></p>
+<p>The user information is represented as a hash which must contain at least the email address of the user and a current timestamp (in ISO8601 encoding).</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+        <span class="nx">email</span><span class="o">:</span> <span class="s2">&quot;bob@bitblox.me&quot;</span><span class="p">,</span>
+        <span class="nx">created_at</span><span class="o">:</span> <span class="s2">&quot;2016-06-13T15:16:23-04:00&quot;</span><span class="p">,</span>
+        <span class="nx">return_to</span><span class="o">:</span> <span class="s2">&quot;redirect_url&quot;</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="themes">
-<h2>Themes<a class="headerlink" href="#themes" title="Permalink to this headline">¶</a></h2>
-<p>About Themes</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>2. Encrypt the JSON data using AES</strong></p>
+<p>To generate a valid multipass login token, you need the secret given to you in your BitBlox Developer admin. The secret is used to derive two cryptographic keys — one for encryption and one for signing. This key derivation is done through the use of the SHA-256 hash function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).</p>
+<p>The encryption provides confidentiality. It makes sure that no one can read the customer data. As encryption cipher, we use the AES algorithm (128 bit key length, CBC mode of operation, random initialization vector).</p>
+<p><strong>3. Sign the encrypted data using HMAC</strong></p>
+<p>The signature (also called message authentication code) provides authenticity. It makes sure that the multipass token is authentic and hasn&#8217;t been tampered with. We use the HMAC algorithm with a SHA-256 hash function and we sign the encrypted JSON data from step 2 (not the plaintext JSON data from step 1).</p>
+<p><strong>4. Base64 encode the binary data</strong></p>
+<p>The multipass login token now consists of the 128 bit initialization vector, a variable length ciphertext, and a 256 bit signature (in this order). This data is encoded using base64 (URL-safe variant, RFC 4648).</p>
+<p><strong>5. Redirect your user to your website</strong></p>
+<p>Once you have the token, you should trigger a HTTP GET request.</p>
+<p><tt class="docutils literal"><span class="pre">GET:</span> <span class="pre">http://{project_name}.{your_domain}/multipass/login/{token}</span></tt></p>
+<p>When the request is successful (e.g. the token is valid and not expired), the user will be logged and returned to your website from <tt class="docutils literal"><span class="pre">return_to</span></tt> param.</p>
+<p>The multipass token is only valid within a very short timeframe and each token can only be used once. For those reasons, you should not generate tokens in advance for rendering them into your HTML sites. You should create a redirect URL which generates tokens on-the-fly when needed and then automatically redirects the browser.</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
 </div>
+<blockquote>
+<div><p><strong>PHP:</strong></p>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+
+<span class="k">class</span> <span class="nc">Multipass</span> <span class="p">{</span>
+
+        <span class="k">private</span> <span class="nv">$signature_key</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="nv">$encryption_key</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="nv">$init_vector</span><span class="p">;</span>
+
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$secret_key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$key_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span>  <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+
+                <span class="nv">$iv_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$iv_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Converts and signs a PHP object or array into a JWT string.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param object|array  $payload    PHP object or array</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string A signed JWT</span>
+<span class="sd">         *</span>
+<span class="sd">         * @uses jsonEncode</span>
+<span class="sd">         * @uses urlsafeB64Encode</span>
+<span class="sd">         */</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$segments</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span><span class="p">));</span>
+                <span class="nv">$signing_input</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+
+                <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sign</span><span class="p">(</span><span class="nv">$signing_input</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span><span class="p">);</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
+
+                <span class="k">return</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Sign a string with a given key and algorithm.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string            $msg    The message to sign</span>
+<span class="sd">         * @param string|resource   $key    The secret key</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string An encrypted message</span>
+<span class="sd">         *</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">sign</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">&#39;SHA256&#39;</span><span class="p">,</span> <span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="sd">/**</span>
+<span class="sd">         * Encode a string with URL-safe Base64.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string $input The string you want encoded</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string The base64 encode of what you passed in</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">strtr</span><span class="p">(</span><span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">),</span> <span class="s1">&#39;+/&#39;</span><span class="p">,</span> <span class="s1">&#39;-_&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">openssl_encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span> <span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </div>
-<div class="section" id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">¶</a></h2>
-<p>About Applications</p>
 <div class="line-block">
 <div class="line"><br /></div>
+</div>
+<div class="highlight-php"><div class="highlight"><pre><span class="cp">&lt;?php</span>
+         <span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s2">&quot;UTC&quot;</span><span class="p">);</span>
+
+         <span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
+
+         <span class="nv">$user_data</span> <span class="o">=</span> <span class="p">[</span>
+                 <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;user email&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;created_at&quot;</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span>
+                 <span class="s2">&quot;return_to&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;redirect to&quot;</span>
+         <span class="p">];</span>
+
+         <span class="nv">$multipass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Multipass</span><span class="p">(</span><span class="s2">&quot;application secret key&quot;</span><span class="p">);</span>
+         <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$multipass</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$user_data</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="line-block">
 <div class="line"><br /></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="manage-dns-settings">
+<h3>Manage DNS Settings<a class="headerlink" href="#manage-dns-settings" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Log in to your Domain provider dashboard</li>
+<li>Set CNAME record</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="31%" />
+<col width="38%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type</th>
+<th class="head">Name</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CName</td>
+<td><tt class="docutils literal"><span class="pre">*</span></tt></td>
+<td>bitblox.me</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -121,23 +427,31 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Quick Start</a><ul>
-<li><a class="reference internal" href="#about-remote-editor">About Remote Editor</a></li>
-<li><a class="reference internal" href="#creating-remote-editor">Creating Remote Editor</a></li>
-<li><a class="reference internal" href="#pricing">Pricing</a></li>
-<li><a class="reference internal" href="#balance">Balance</a></li>
-<li><a class="reference internal" href="#themes">Themes</a></li>
-<li><a class="reference internal" href="#applications">Applications</a></li>
+<li><a class="reference internal" href="#">Getting Started</a><ul>
+<li><a class="reference internal" href="#api-credentials">API Credentials</a></li>
+<li><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li><a class="reference internal" href="#request-access-token">Request access token</a></li>
+<li><a class="reference internal" href="#request-new-access-tokens">Request new access tokens</a></li>
+<li><a class="reference internal" href="#when-the-token-expires">When the Token Expires</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-call-limit">API Call Limit</a><ul>
+<li><a class="reference internal" href="#are-you-going-over-the-api-limit">Are you going over the API limit?</a></li>
+<li><a class="reference internal" href="#how-to-avoid-the-429-error">How to avoid the 429 error</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#multipass">Multipass</a><ul>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+<li><a class="reference internal" href="#manage-dns-settings">Manage DNS Settings</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">BitBlox</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="authentication.html"
-                        title="next chapter">Authentication</a></p>
+                        title="previous chapter">BitBlox API</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/getting_started.txt"
@@ -167,10 +481,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="authentication.html" title="Authentication"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="BitBlox"
+          <a href="index.html" title="BitBlox API"
              >previous</a> |</li>
         <li><a href="index.html">BitBlox 1.0.0 documentation</a> &raquo;</li> 
       </ul>
