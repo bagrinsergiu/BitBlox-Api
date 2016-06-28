@@ -17,14 +17,6 @@ Your Remote Editor cannot read API data without authenticating first. It must ge
 |
 |
 
-#API Credential Rotation
-#-----------------
-#
-#Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www#.bitblox.me/plus/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
-#
-#|
-#|
-
 Request access token
 --------------------
 
