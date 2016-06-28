@@ -1,32 +1,32 @@
-==============
+===============
 Getting Started
-==============
+===============
 
 
 API Credentials
-=================
+===============
 
-Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page` <http://www.bitblox.me/developer/editors>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
 
 
 Authentication
-=================
+==============
 
 Your Remote Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
 
 |
 |
 
-API Credential Rotation
------------------
-
-Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/developer/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
-
-|
-|
+#API Credential Rotation
+#-----------------
+#
+#Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www#.bitblox.me/plus/editors>`_ to manage keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+#
+#|
+#|
 
 Request access token
------------------
+--------------------
 
 For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the following parameters:
 
@@ -50,10 +50,10 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 
 		  define('GRANT_TYPE_PASSWORD', 'password');
 
-		  $client_id     = "{CLIENT_ID}";
-		  $client_secret = "{CLIENT_SECRET}";
-		  $email         = "{CLIENT_EMAIL}";
-		  $password      = "{CLIENT_PASSWORD}";
+		  $client_id     = "{API_KEY}";
+		  $client_secret = "{SECRET_KEY}";
+		  $email         = "{USER_EMAIL}";
+		  $password      = "{USER_PASSWORD}";
 
 		  $data = [
 		    'client_id'     => $client_id,
@@ -93,14 +93,14 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 |
 
 Request new access tokens
------------------
+-------------------------
 
 For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
 ``POST http://api.bitblox.me/oauth/token``
 with the following parameters:
 
 	- ``client_id (required)``: The API key for your app
-	- ``client_secret (required)``: The new Shared Secret for your app
+	- ``client_secret (required)``: The new Secret Key for your app
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
 	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard
 
@@ -118,8 +118,8 @@ with the following parameters:
 
 		  define('GRANT_TYPE_REFRESH_TOKEN', 'refresh_token');
 
-		  $client_id     = "{CLIENT_ID}";
-		  $client_secret = "{CLIENT_SECRET}";
+		  $client_id     = "{API_KEY}";
+		  $client_secret = "{SECRET_KEY}";
 		  $refresh_token = "{REFRESH_TOKEN}";
 
 		  $data = [
@@ -156,7 +156,7 @@ with the following parameters:
 		?>
 
 When the Token Expires
------------------
+----------------------
 
 When the token expires, your next API call will fail with the following result:
 
@@ -182,7 +182,7 @@ Your API calls will be processed almost instantly if there is room in your "buck
 |
 
 Are you going over the API limit?
------------------------
+---------------------------------
 
 Automated tasks that pause and resume are the best way to stay within the API call limit since you don't need to wait while things get done.
 
@@ -192,7 +192,7 @@ This article will show you how to tell your program to take small pauses to keep
 |
 
 How to avoid the 429 error
----------------------------
+--------------------------
 
 Some things to remember:
 
@@ -222,7 +222,7 @@ Multipass login is for users which was created through BitBlox API. It redirects
 |
 
 Implementation
-------------------
+--------------
 
 **1. Encode your user information using JSON**
 
@@ -368,7 +368,7 @@ The multipass token is only valid within a very short timeframe and each token c
 	|
 
 Manage DNS Settings
---------------
+-------------------
 
 1. Log in to your Domain provider dashboard
 2. Set CNAME record
