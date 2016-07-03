@@ -22,8 +22,8 @@ Request access token
 
 For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the following parameters:
 
-	- ``client_id (required)``: The API key for your app
-	- ``client_secret (required)``: The Secret Key for your app
+	- ``client_id (required)``: The Client ID for your app
+	- ``client_secret (required)``: The Client Secret for your app
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
 	- ``email (required)``: Client email.
 	- ``password (required)``: Client password.
@@ -91,8 +91,8 @@ For each access token stored by your application, refresh it by requesting an ac
 ``POST http://api.bitblox.me/oauth/token``
 with the following parameters:
 
-	- ``client_id (required)``: The API key for your app
-	- ``client_secret (required)``: The new Secret Key for your app
+	- ``client_id (required)``: The Client ID for your app
+	- ``client_secret (required)``: The new Client Secret for your app
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
 	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard
 
