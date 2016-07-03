@@ -42,8 +42,8 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 
 		  define('GRANT_TYPE_PASSWORD', 'password');
 
-		  $client_id     = "{API_KEY}";
-		  $client_secret = "{SECRET_KEY}";
+		  $client_id     = "{CLIENT_ID}";
+		  $client_secret = "{CLIENT_SECRET}";
 		  $email         = "{USER_EMAIL}";
 		  $password      = "{USER_PASSWORD}";
 
@@ -110,8 +110,8 @@ with the following parameters:
 
 		  define('GRANT_TYPE_REFRESH_TOKEN', 'refresh_token');
 
-		  $client_id     = "{API_KEY}";
-		  $client_secret = "{SECRET_KEY}";
+		  $client_id     = "{CLIENT_ID}";
+		  $client_secret = "{CLIENT_SECRET}";
 		  $refresh_token = "{REFRESH_TOKEN}";
 
 		  $data = [
