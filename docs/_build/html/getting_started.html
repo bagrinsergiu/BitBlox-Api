@@ -376,12 +376,12 @@ with the following parameters:</p>
          <span class="nv">$date</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\DateTime</span><span class="p">();</span>
 
          <span class="nv">$user_data</span> <span class="o">=</span> <span class="p">[</span>
-                 <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;user email&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;email&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;{USER_EMAIL}&quot;</span><span class="p">,</span>
                  <span class="s2">&quot;created_at&quot;</span> <span class="o">=&gt;</span> <span class="nv">$date</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nx">\DateTime</span><span class="o">::</span><span class="na">ISO8601</span><span class="p">),</span>
                  <span class="s2">&quot;return_to&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;redirect to&quot;</span>
          <span class="p">];</span>
 
-         <span class="nv">$multipass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Multipass</span><span class="p">(</span><span class="s2">&quot;application secret key&quot;</span><span class="p">);</span>
+         <span class="nv">$multipass</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Multipass</span><span class="p">(</span><span class="s2">&quot;{SECRET}&quot;</span><span class="p">);</span>
          <span class="nv">$token</span> <span class="o">=</span> <span class="nv">$multipass</span><span class="o">-&gt;</span><span class="na">encode</span><span class="p">(</span><span class="nv">$user_data</span><span class="p">);</span>
 </pre></div>
 </div>

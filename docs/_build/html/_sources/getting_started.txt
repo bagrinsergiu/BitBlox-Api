@@ -349,12 +349,12 @@ The multipass token is only valid within a very short timeframe and each token c
 			 $date = new \DateTime();
 
 			 $user_data = [
-				 "email" => "user email",
+				 "email" => "{USER_EMAIL}",
 				 "created_at" => $date->format(\DateTime::ISO8601),
 				 "return_to" => "redirect to"
 			 ];
 
-			 $multipass = new Multipass("application secret key");
+			 $multipass = new Multipass("{SECRET}");
 			 $token = $multipass->encode($user_data);
 
 	|
