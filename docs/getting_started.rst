@@ -25,8 +25,8 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 	- ``client_id (required)``: The API Key for the app.
 	- ``client_secret (required)``: The Secret for the app.
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token.
-	- ``email (required)``: Client email.
-	- ``password (required)``: Client password.
+	- ``email (required)``: User email.
+	- ``password (required)``: User password.
 
 .. 	note::
 	The access token is temporary, and can only be used for one hour after it has been generated.
@@ -94,7 +94,7 @@ with the following parameters:
 	- ``client_id (required)``: The API Key for the app.
 	- ``client_secret (required)``: The Secret for the app.
 	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token.
-	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard.
+	- ``refresh_token (required)``: The refresh token you created from your access token request.
 
 .. 	note::
 	The refresh token is temporary, and can only be used for one hour after it has been generated.
