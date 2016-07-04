@@ -50,7 +50,7 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-credentials">
 <h2>API Credentials<a class="headerlink" href="#api-credentials" title="Permalink to this headline">¶</a></h2>
-<p>Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/plus/editors">remote editor management page</a> to see your API key and Secret. It is important that you treat this key as if it were a secret password. With an API key and Secret, anyone can access endpoints from your account.</p>
+<p>Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/plus/editors">remote editor management page</a> to see your API Key and Secret. It is important that you treat this key as if it were a secret password. With an API Key and Secret, anyone can access endpoints from your account.</p>
 </div>
 <div class="section" id="authentication">
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
@@ -133,7 +133,7 @@
 </div>
 <div class="section" id="request-new-access-tokens">
 <h3>Request new access tokens<a class="headerlink" href="#request-new-access-tokens" title="Permalink to this headline">¶</a></h3>
-<p>For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
+<p>For each access token stored by your application, refresh it by requesting an access token using your API Key and Secret and the refresh token:
 <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt>
 with the following parameters:</p>
 <blockquote>

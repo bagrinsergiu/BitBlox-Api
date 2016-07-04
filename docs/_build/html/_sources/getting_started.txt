@@ -6,7 +6,7 @@ Getting Started
 API Credentials
 ===============
 
-Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to see your API key and Secret. It is important that you treat this key as if it were a secret password. With an API key and Secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to see your API Key and Secret. It is important that you treat this key as if it were a secret password. With an API Key and Secret, anyone can access endpoints from your account.
 
 
 Authentication
@@ -87,7 +87,7 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 Request new access tokens
 -------------------------
 
-For each access token stored by your application, refresh it by requesting an access token using your new shared secret and the refresh token:
+For each access token stored by your application, refresh it by requesting an access token using your API Key and Secret and the refresh token:
 ``POST http://api.bitblox.me/oauth/token``
 with the following parameters:
 
