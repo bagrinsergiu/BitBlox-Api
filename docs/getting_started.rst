@@ -6,13 +6,13 @@ Getting Started
 API Credentials
 ===============
 
-Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to see your API key and Secret. It is important that you treat this key as if it were a secret password. With an API key and Secret, anyone can access endpoints from your account.
 
 
 Authentication
 ==============
 
-Your Remote Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
+Your Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the `OAuth 2.0 specification <https://tools.ietf.org/html/rfc6749>`_).
 
 |
 |
@@ -22,9 +22,9 @@ Request access token
 
 For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the following parameters:
 
-	- ``client_id (required)``: The Client ID for your app
-	- ``client_secret (required)``: The Client Secret for your app
-	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
+	- ``client_id (required)``: The API Key for the app.
+	- ``client_secret (required)``: The Secret for the app.
+	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token.
 	- ``email (required)``: Client email.
 	- ``password (required)``: Client password.
 
@@ -42,8 +42,8 @@ For creating access token: ``POST http://api.bitblox.me/oauth/token`` with the f
 
 		  define('GRANT_TYPE_PASSWORD', 'password');
 
-		  $client_id     = "{CLIENT_ID}";
-		  $client_secret = "{CLIENT_SECRET}";
+		  $client_id     = "{API_KEY}";
+		  $client_secret = "{SECRET}";
 		  $email         = "{USER_EMAIL}";
 		  $password      = "{USER_PASSWORD}";
 
@@ -91,10 +91,10 @@ For each access token stored by your application, refresh it by requesting an ac
 ``POST http://api.bitblox.me/oauth/token``
 with the following parameters:
 
-	- ``client_id (required)``: The Client ID for your app
-	- ``client_secret (required)``: The new Client Secret for your app
-	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token
-	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard
+	- ``client_id (required)``: The API Key for the app.
+	- ``client_secret (required)``: The Secret for the app.
+	- ``grant_type (required)``: Represents the flow needed for the Client to obtain Access Token.
+	- ``refresh_token (required)``: The refresh token you created from your app’s page in the Partners dashboard.
 
 .. 	note::
 	The refresh token is temporary, and can only be used for one hour after it has been generated.
@@ -110,8 +110,8 @@ with the following parameters:
 
 		  define('GRANT_TYPE_REFRESH_TOKEN', 'refresh_token');
 
-		  $client_id     = "{CLIENT_ID}";
-		  $client_secret = "{CLIENT_SECRET}";
+		  $client_id     = "{API_KEY}";
+		  $client_secret = "{SECRET}";
 		  $refresh_token = "{REFRESH_TOKEN}";
 
 		  $data = [

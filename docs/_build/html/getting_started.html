@@ -50,11 +50,11 @@
 <h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="api-credentials">
 <h2>API Credentials<a class="headerlink" href="#api-credentials" title="Permalink to this headline">¶</a></h2>
-<p>Access to the API is available to everyone with a BitBlox Developer account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/plus/editors">remote editor management page</a> to generate a new API key or manage existing keys. It is important that you treat this key as if it were a secret password. With an API key and secret, anyone can access endpoints from your account.</p>
+<p>Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the <a class="reference external" href="http://www.bitblox.me/plus/editors">remote editor management page</a> to see your API key and Secret. It is important that you treat this key as if it were a secret password. With an API key and Secret, anyone can access endpoints from your account.</p>
 </div>
 <div class="section" id="authentication">
 <h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
-<p>Your Remote Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 specification</a>).</p>
+<p>Your Editor cannot read API data without authenticating first. It must get permission from a user before gaining access to any of the resources in the REST API. This guide will walk you through the authorization process (described in greater detail by the <a class="reference external" href="https://tools.ietf.org/html/rfc6749">OAuth 2.0 specification</a>).</p>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -64,9 +64,9 @@
 <p>For creating access token: <tt class="docutils literal"><span class="pre">POST</span> <span class="pre">http://api.bitblox.me/oauth/token</span></tt> with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The Client ID for your app</li>
-<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Client Secret for your app</li>
-<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token</li>
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API Key for the app.</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Secret for the app.</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token.</li>
 <li><tt class="docutils literal"><span class="pre">email</span> <span class="pre">(required)</span></tt>: Client email.</li>
 <li><tt class="docutils literal"><span class="pre">password</span> <span class="pre">(required)</span></tt>: Client password.</li>
 </ul>
@@ -85,8 +85,8 @@
 
   <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;GRANT_TYPE_PASSWORD&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">);</span>
 
-  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
-  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{API_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{SECRET}&quot;</span><span class="p">;</span>
   <span class="nv">$email</span>         <span class="o">=</span> <span class="s2">&quot;{USER_EMAIL}&quot;</span><span class="p">;</span>
   <span class="nv">$password</span>      <span class="o">=</span> <span class="s2">&quot;{USER_PASSWORD}&quot;</span><span class="p">;</span>
 
@@ -138,10 +138,10 @@
 with the following parameters:</p>
 <blockquote>
 <div><ul class="simple">
-<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The Client ID for your app</li>
-<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The new Client Secret for your app</li>
-<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token</li>
-<li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard</li>
+<li><tt class="docutils literal"><span class="pre">client_id</span> <span class="pre">(required)</span></tt>: The API Key for the app.</li>
+<li><tt class="docutils literal"><span class="pre">client_secret</span> <span class="pre">(required)</span></tt>: The Secret for the app.</li>
+<li><tt class="docutils literal"><span class="pre">grant_type</span> <span class="pre">(required)</span></tt>: Represents the flow needed for the Client to obtain Access Token.</li>
+<li><tt class="docutils literal"><span class="pre">refresh_token</span> <span class="pre">(required)</span></tt>: The refresh token you created from your app’s page in the Partners dashboard.</li>
 </ul>
 </div></blockquote>
 <div class="admonition note">
@@ -158,8 +158,8 @@ with the following parameters:</p>
 
   <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;GRANT_TYPE_REFRESH_TOKEN&#39;</span><span class="p">,</span> <span class="s1">&#39;refresh_token&#39;</span><span class="p">);</span>
 
-  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{CLIENT_ID}&quot;</span><span class="p">;</span>
-  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{CLIENT_SECRET}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_id</span>     <span class="o">=</span> <span class="s2">&quot;{API_KEY}&quot;</span><span class="p">;</span>
+  <span class="nv">$client_secret</span> <span class="o">=</span> <span class="s2">&quot;{SECRET}&quot;</span><span class="p">;</span>
   <span class="nv">$refresh_token</span> <span class="o">=</span> <span class="s2">&quot;{REFRESH_TOKEN}&quot;</span><span class="p">;</span>
 
   <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
