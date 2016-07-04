@@ -360,7 +360,16 @@ with the following parameters:</p>
                 <span class="k">return</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">strtr</span><span class="p">(</span><span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">),</span> <span class="s1">&#39;+/&#39;</span><span class="p">,</span> <span class="s1">&#39;-_&#39;</span><span class="p">));</span>
         <span class="p">}</span>
 
-        <span class="k">public</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">)</span>
+        <span class="sd">/**</span>
+<span class="sd">         * Encrypt a string with AES-128-CBC</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string    $json_payload   The data</span>
+<span class="sd">         * @param string    $encryption_key The secret encryption key</span>
+<span class="sd">         * @param string    $init_vector    A non-NULL Initialization Vector</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string An encrypted data</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">)</span>
         <span class="p">{</span>
                 <span class="k">return</span> <span class="nb">openssl_encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span> <span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">);</span>
         <span class="p">}</span>

@@ -333,7 +333,16 @@ The multipass token is only valid within a very short timeframe and each token c
 				return str_replace('=', '', strtr(base64_encode($input), '+/', '-_'));
 			}
 
-			public function encrypt($json_payload, $encryption_key, $init_vector)
+			/**
+			 * Encrypt a string with AES-128-CBC
+			 *
+			 * @param string    $json_payload   The data
+			 * @param string    $encryption_key The secret encryption key
+			 * @param string    $init_vector    A non-NULL Initialization Vector
+			 *
+			 * @return string An encrypted data
+			 */
+			private function encrypt($json_payload, $encryption_key, $init_vector)
 			{
 				return openssl_encrypt($json_payload, 'AES-128-CBC' , $encryption_key, OPENSSL_RAW_DATA, $init_vector);
 			}
