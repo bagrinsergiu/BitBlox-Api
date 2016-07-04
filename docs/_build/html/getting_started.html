@@ -293,86 +293,86 @@ with the following parameters:</p>
 
 <span class="k">class</span> <span class="nc">Multipass</span> <span class="p">{</span>
 
-<span class="k">private</span> <span class="nv">$signature_key</span><span class="p">;</span>
+        <span class="k">private</span> <span class="nv">$signature_key</span><span class="p">;</span>
 
-<span class="k">private</span> <span class="nv">$encryption_key</span><span class="p">;</span>
+        <span class="k">private</span> <span class="nv">$encryption_key</span><span class="p">;</span>
 
-<span class="k">private</span> <span class="nv">$init_vector</span><span class="p">;</span>
+        <span class="k">private</span> <span class="nv">$init_vector</span><span class="p">;</span>
 
-<span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$secret_key</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="nv">$key_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$secret_key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$key_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$secret_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span>  <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span>  <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$key_material</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
 
-        <span class="nv">$iv_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+                <span class="nv">$iv_material</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="s2">&quot;SHA256&quot;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$iv_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
-<span class="p">}</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$iv_material</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">);</span>
+        <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * Converts and signs a PHP object or array into a JWT string.</span>
-<span class="sd"> *</span>
-<span class="sd"> * @param object|array  $payload    PHP object or array</span>
-<span class="sd"> *</span>
-<span class="sd"> * @return string A signed JWT</span>
-<span class="sd"> *</span>
-<span class="sd"> * @uses jsonEncode</span>
-<span class="sd"> * @uses urlsafeB64Encode</span>
-<span class="sd"> */</span>
-<span class="k">public</span> <span class="k">function</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="nv">$segments</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+        <span class="sd">/**</span>
+<span class="sd">         * Converts and signs a PHP object or array into a JWT string.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param object|array  $payload    PHP object or array</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string A signed JWT</span>
+<span class="sd">         *</span>
+<span class="sd">         * @uses jsonEncode</span>
+<span class="sd">         * @uses urlsafeB64Encode</span>
+<span class="sd">         */</span>
+        <span class="k">public</span> <span class="k">function</span> <span class="nf">encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="nv">$segments</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
 
-        <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span><span class="p">));</span>
-        <span class="nv">$signing_input</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nb">json_encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">),</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryption_key</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">init_vector</span><span class="p">));</span>
+                <span class="nv">$signing_input</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
 
-        <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sign</span><span class="p">(</span><span class="nv">$signing_input</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span><span class="p">);</span>
-        <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
+                <span class="nv">$signature</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sign</span><span class="p">(</span><span class="nv">$signing_input</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">signature_key</span><span class="p">);</span>
+                <span class="nv">$segments</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$signature</span><span class="p">);</span>
 
-        <span class="k">return</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
-<span class="p">}</span>
+                <span class="k">return</span> <span class="nb">implode</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="nv">$segments</span><span class="p">);</span>
+        <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * Sign a string with a given key and algorithm.</span>
-<span class="sd"> *</span>
-<span class="sd"> * @param string            $msg    The message to sign</span>
-<span class="sd"> * @param string|resource   $key    The secret key</span>
-<span class="sd"> *</span>
-<span class="sd"> * @return string An encrypted message</span>
-<span class="sd"> *</span>
-<span class="sd"> */</span>
-<span class="k">private</span> <span class="k">function</span> <span class="nf">sign</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="k">return</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">&#39;SHA256&#39;</span><span class="p">,</span> <span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-<span class="p">}</span>
+        <span class="sd">/**</span>
+<span class="sd">         * Sign a string with a given key and algorithm.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string            $msg    The message to sign</span>
+<span class="sd">         * @param string|resource   $key    The secret key</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string An encrypted message</span>
+<span class="sd">         *</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">sign</span><span class="p">(</span><span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">&#39;SHA256&#39;</span><span class="p">,</span> <span class="nv">$msg</span><span class="p">,</span> <span class="nv">$key</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * Encode a string with URL-safe Base64.</span>
-<span class="sd"> *</span>
-<span class="sd"> * @param string $input The string you want encoded</span>
-<span class="sd"> *</span>
-<span class="sd"> * @return string The base64 encode of what you passed in</span>
-<span class="sd"> */</span>
-<span class="k">private</span> <span class="k">function</span> <span class="nf">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="k">return</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">strtr</span><span class="p">(</span><span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">),</span> <span class="s1">&#39;+/&#39;</span><span class="p">,</span> <span class="s1">&#39;-_&#39;</span><span class="p">));</span>
-<span class="p">}</span>
+        <span class="sd">/**</span>
+<span class="sd">         * Encode a string with URL-safe Base64.</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string $input The string you want encoded</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string The base64 encode of what you passed in</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">urlsafeB64Encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">strtr</span><span class="p">(</span><span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$input</span><span class="p">),</span> <span class="s1">&#39;+/&#39;</span><span class="p">,</span> <span class="s1">&#39;-_&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * Encrypt a string with AES-128-CBC</span>
-<span class="sd"> *</span>
-<span class="sd"> * @param string    $json_payload   The data</span>
-<span class="sd"> * @param string    $encryption_key The secret encryption key</span>
-<span class="sd"> * @param string    $init_vector    A non-NULL Initialization Vector</span>
-<span class="sd"> *</span>
-<span class="sd"> * @return string An encrypted data</span>
-<span class="sd"> */</span>
-<span class="k">private</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">)</span>
-<span class="p">{</span>
-        <span class="k">return</span> <span class="nb">openssl_encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span> <span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">);</span>
-<span class="p">}</span>
+        <span class="sd">/**</span>
+<span class="sd">         * Encrypt a string with AES-128-CBC</span>
+<span class="sd">         *</span>
+<span class="sd">         * @param string    $json_payload   The data</span>
+<span class="sd">         * @param string    $encryption_key The secret encryption key</span>
+<span class="sd">         * @param string    $init_vector    A non-NULL Initialization Vector</span>
+<span class="sd">         *</span>
+<span class="sd">         * @return string An encrypted data</span>
+<span class="sd">         */</span>
+        <span class="k">private</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="k">return</span> <span class="nb">openssl_encrypt</span><span class="p">(</span><span class="nv">$json_payload</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span> <span class="p">,</span> <span class="nv">$encryption_key</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$init_vector</span><span class="p">);</span>
+        <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
