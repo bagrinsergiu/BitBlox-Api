@@ -232,7 +232,7 @@ The user information is represented as a hash which must contain at least the em
 
 **2. Encrypt the JSON data using AES**
 
-To generate a valid multipass login token, you need the secret given to you in your BitBlox Developer admin. The secret is used to derive two cryptographic keys — one for encryption and one for signing. This key derivation is done through the use of the SHA-256 hash function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).
+To generate a valid multipass login token, you need the Secret given to you in your BitBlox account. The secret is used to derive two cryptographic keys — one for encryption and one for signing. This key derivation is done through the use of the SHA-256 hash function (the first 128 bit are used as encryption key and the last 128 bit are used as signature key).
 
 The encryption provides confidentiality. It makes sure that no one can read the customer data. As encryption cipher, we use the AES algorithm (128 bit key length, CBC mode of operation, random initialization vector).
 
