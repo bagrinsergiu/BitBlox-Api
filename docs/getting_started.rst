@@ -6,7 +6,7 @@ Getting Started
 API Credentials
 ===============
 
-Access to the API is available to everyone with a BitBlox account. Once you have logged in, visit the `remote editor management page <http://www.bitblox.me/plus/editors>`_ to see your API Key and Secret. It is important that you treat this key as if it were a secret password. With an API Key and Secret, anyone can access endpoints from your account.
+Access to the API is available to everyone with a BitBlox Reseller account. Once you have `logged in <http://www.bitblox.me/resellers/editors>`_ and added a new editor visit the editor page to see your API Key and Secret. It is important that you treat this key as if it were a secret password. With an API Key and Secret, anyone can access endpoints from your account.
 
 
 Authentication
